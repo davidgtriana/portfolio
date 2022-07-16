@@ -111,7 +111,7 @@ a:hover {
 }
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .left-content {
-  background: url("/res/img/itchio_icon.jpg");
+  background: url("res/img/itchio_icon.jpg");
   background-position: center center;
   background-size: cover;
   position: fixed;
@@ -136,7 +136,7 @@ a:hover {
   padding-right: 5%;
 }
 .right-content #profile .image {
-  background: url("/res/img/profile.jpeg");
+  background: url("res/img/profile.jpeg");
   background-position: left center;
   background-size: cover;
   width: 90%;
