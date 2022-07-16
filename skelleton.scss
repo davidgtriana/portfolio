@@ -1,0 +1,214 @@
+/* Rewriting Bootstrap ––––––––––––––––––––––––––––––––––––––––– */
+.row.no-padding>*{padding: 0;}
+
+/* Variables ––––––––––––––––––––––––––––––––––––––––––––––––––– */
+$main-color-font: #ffffff;
+$black-color-font: #1d1d1d;
+$secondary-color-font: #ff8672;
+$screen-size-phone: 575px;
+$screen-size-xxl: 1400px;
+
+/* General ––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+body{
+    background-color: $black-color-font;
+    color: $main-color-font;
+}
+
+/* Fonts Defitions ––––––––––––––––––––––––––––––––––––––––––––– */
+@font-face {font-family: "VT323"; src: url(res/fonts/VT323-Regular.ttf);}
+@font-face {font-family: "MINECRAFT"; src: url(res/fonts/Minecraftia-Regular.ttf);}
+
+/* Typography –––––––––––––––––––––––––––––––––––––––––––––––––– */
+ h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-weight: 300; }
+ h1 { font-size: 90px; line-height: 0.8;  letter-spacing: -.1rem; font-family: "VT323";}
+ h2 { font-size: 80px; line-height: 1.25; letter-spacing: -.1rem; font-family: "VT323";}
+ h3 { font-size: 70px; line-height: 1.3;  letter-spacing: -.1rem; font-family: "VT323";}
+ h4 { font-size: 60px; line-height: 1; letter-spacing: -.08rem; font-family: "VT323";}
+ h5 { font-size: 50px; line-height: 1.5;  letter-spacing: -.05rem; font-family: "VT323";}
+ h6 { font-size: 25px; line-height: 1.6;  letter-spacing: 0; font-family: "MINECRAFT";}
+ p { margin-top: 0;  font-size: 22px; line-height: 1.8; font-family: "MINECRAFT";}
+ a { color:$main-color-font; text-decoration: none;}
+ a:hover { color:$secondary-color-font; text-decoration: none;}
+ @media screen and (max-width: $screen-size-phone) {
+    h1 { font-size: 60px; }
+    h2 { font-size: 55px; }
+    h3 { font-size: 50px; }
+    h4 { font-size: 45px; }
+    h5 { font-size: 40px; }
+    h6 { font-size: 23px; }
+    p { font-size: 20px;}
+ }
+
+/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.left-content{
+    background:url('/res/img/itchio_icon.jpg');
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+    padding: 0px;
+    height: 100vh;
+    width: 33.33%;
+    top: 0px;
+    left: 0;
+}
+@media screen and (max-width: $screen-size-xxl) {
+    .left-content {
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        height: 300px;
+    }
+}
+
+.right-content{
+    padding-top: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    #profile{
+        .image{
+            background:url('/res/img/profile.jpeg');
+            background-position: left center;
+            background-size: cover;
+            width: 90%;
+            min-width: 200px;
+            max-width: 280px;
+            height: 90%;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: 0;
+        }
+        @media screen and (max-width: $screen-size-xxl) {
+            .image{
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                max-width: none;
+                height: 300px;
+            }
+        }
+        @media screen and (max-width: $screen-size-phone) {
+            .image{
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                height: 300px;
+            }
+        }
+    
+        .social-icons-container1{
+            font-size: 50px;
+            margin-top: -10px;
+        }
+        .social-icons-container2{
+            display: none;
+        }
+        .info-container{
+            width: 450px;
+        }
+        @media screen and (max-width: $screen-size-xxl) {
+            .social-icons-container1{
+                display: none;
+            }
+            .social-icons-container2{
+                display: flex;
+                text-align: center;
+                font-size: 50px;
+                margin-top: 0px;
+            }
+            .info-container{
+                text-align: center;
+                width: 100%;
+                padding-top: 20px;
+                .text{
+                    margin: 0 auto;
+                    width: 400px;
+                }
+            }
+        }
+        @media screen and (max-width: $screen-size-phone) {
+            .social-icons-container2{
+                display: flex;
+                text-align: left;
+                font-size: 50px;
+                margin-top: -10px;
+            }
+            .info-container{
+                text-align: left;
+                padding-top: 20px;
+                .text{
+                    margin: 0 0;
+                    width: 400px;
+                }
+            }
+        }
+    }
+    
+    hr{
+        width: 100%;
+        height: 3px;
+        background-color: $main-color-font;
+        opacity:1;
+    }
+    .button{
+        background-color: $main-color-font;
+        color: $black-color-font;
+        padding-top: 27px;
+        padding-bottom: 10px;
+        margin-bottom: 0px;
+    }
+    .button:hover{
+        background-color: $secondary-color-font;
+    }
+    @media screen and (max-width: 992px) {
+        .button {
+            margin-bottom: 10px;
+        }
+        hr{
+            margin-top: 7px;
+        }
+    }
+    
+    .education{
+        .row{
+            padding: 30px 0px;
+        }
+        max-width: 1000px;
+        #logo{
+            text-align: right;
+            .image{
+                width: 50%;
+                min-width: 150px;
+                max-width: 300px;
+            }
+        }
+        #info-education{
+            text-align: left;
+            #program{
+                padding-top: 10px;
+            }
+        }
+        @media screen and (max-width: $screen-size-xxl) {
+            #logo{
+            text-align: center;
+            .image{
+                width: 50%;
+            }
+            }
+            #info-education{
+                text-align: center;
+            }
+        }
+    }
+
+}
+@media screen and (max-width: $screen-size-phone) {
+    .right-content {
+        padding: 20px 20px;
+    }
+}
+
