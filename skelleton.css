@@ -11,6 +11,10 @@ body {
   color: #ffffff;
 }
 
+.no-overflow {
+  overflow: hidden;
+}
+
 /* Fonts Defitions ––––––––––––––––––––––––––––––––––––––––––––– */
 @font-face {
   font-family: "VT323";
@@ -57,7 +61,7 @@ h4 {
 
 h5 {
   font-size: 50px;
-  line-height: 1.5;
+  line-height: 1.2;
   letter-spacing: -0.05rem;
   font-family: "VT323";
 }
@@ -142,7 +146,7 @@ a:hover {
   width: 90%;
   min-width: 200px;
   max-width: 280px;
-  height: 90%;
+  height: 92%;
   border-radius: 10px;
   margin-left: auto;
   margin-right: 0;
@@ -165,7 +169,7 @@ a:hover {
   }
 }
 .right-content #profile .social-icons-container1 {
-  font-size: 50px;
+  font-size: 40px;
   margin-top: -10px;
 }
 .right-content #profile .social-icons-container2 {
@@ -207,7 +211,7 @@ a:hover {
   }
   .right-content #profile .info-container .text {
     margin: 0 0;
-    width: 400px;
+    width: 340px;
   }
 }
 .right-content hr {
@@ -264,6 +268,86 @@ a:hover {
   .right-content .education #info-education {
     text-align: center;
   }
+}
+.right-content .projects .spacing {
+  background-clip: padding-box;
+  border: 5px solid transparent;
+}
+.right-content .projects .project {
+  position: relative;
+  height: 350px;
+  width: 100%;
+  transition: 0.3s ease-in-out;
+}
+.right-content .projects .project .bg {
+  background-color: rgba(255, 134, 114, 0);
+  color: rgba(29, 29, 29, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: 0.3s ease-in-out;
+}
+.right-content .projects .project .bg:hover {
+  background-color: rgba(255, 134, 114, 0.3);
+  color: rgb(29, 29, 29);
+}
+.right-content .projects .project .name {
+  margin-top: 10px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.right-content .projects .project:hover {
+  transform: scale(1.2);
+}
+@media screen and (max-width: 1400px) {
+  .right-content .projects .project {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .right-content .projects .project {
+    height: 230px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .right-content .projects .project {
+    height: 140px;
+  }
+}
+.right-content .projects .paper-asteroid {
+  background: url("res/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.right-content .projects .number-cruncher {
+  background: url("res/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.right-content .projects .dagovt {
+  background: url("res/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.right-content .projects .blackjack {
+  background: url("res/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.right-content .projects .dpa {
+  background: url("res/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 575px) {
