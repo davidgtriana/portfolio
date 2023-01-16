@@ -177,6 +177,16 @@ a:hover {
   padding-left: 20px;
   width: 135px;
 }
+@media screen and (max-width: 575px) {
+  .right-content #back-button {
+    padding-top: 8px;
+    width: 90px;
+    padding-left: 18px;
+  }
+  .right-content #back-button p {
+    font-size: 12px;
+  }
+}
 .right-content #profile .image {
   background: url("res/img/profile.jpeg");
   background-position: left center;
@@ -215,6 +225,17 @@ a:hover {
 }
 .right-content #profile .info-container {
   width: 450px;
+}
+.right-content #profile .info-container a {
+  padding: 10px 5px 0 7px;
+  display: inline-block;
+  background-color: #ffffff;
+  color: #1d1d1d;
+  font-size: 21px;
+  line-height: 0.9em;
+}
+.right-content #profile .info-container a:hover {
+  background-color: #ff8672;
 }
 @media screen and (max-width: 1400px) {
   .right-content #profile .social-icons-container1 {
@@ -297,6 +318,12 @@ a:hover {
 .right-content .education #info-education #program {
   padding-top: 10px;
 }
+.right-content .education #info-education > ul {
+  list-style-image: url("/res/img/bullet_list-3h.png");
+}
+.right-content .education #info-education > ul p {
+  padding-left: 15px;
+}
 @media screen and (max-width: 1400px) {
   .right-content .education #logo {
     text-align: center;
@@ -306,6 +333,10 @@ a:hover {
   }
   .right-content .education #info-education {
     text-align: center;
+  }
+  .right-content .education #info-education > ul {
+    text-align: left;
+    padding-left: 15%;
   }
 }
 .right-content .projects .spacing {
@@ -432,4 +463,46 @@ a:hover {
   .right-content {
     padding: 20px 20px;
   }
+}
+.about-me #back-button {
+  background-color: #ffffff;
+}
+.about-me #back-button a {
+  color: #1d1d1d;
+}
+.about-me .left-content {
+  background: url("res/img/david_triana_front_page.webp");
+  background-position: right 70% center;
+  background-size: cover;
+  position: fixed;
+  padding: 0px;
+  height: 100vh;
+  width: 33.33%;
+  top: 0px;
+  left: 0;
+}
+@media screen and (max-width: 1400px) {
+  .about-me .left-content {
+    background-size: cover;
+    background-position: bottom 65% center;
+    position: relative;
+    width: 100%;
+    height: 200px;
+  }
+}
+.about-me .right-content {
+  padding-top: 30px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.about-me .right-content h1 {
+  text-align: center;
+}
+@media screen and (max-width: 575px) {
+  .about-me .right-content {
+    padding: 20px 20px;
+  }
+}
+.about-me p {
+  text-align: justify;
 }/*# sourceMappingURL=skelleton.css.map */

@@ -79,7 +79,6 @@ body{
         height: 100%;
         width: 100%;
     }
-
 }
 @media screen and (max-width: $screen-size-xxl) {
     .left-content {
@@ -101,11 +100,11 @@ body{
         top: 10px;
         left: 15px;
         width: 150px;
-        padding-top:12px;
+        padding-top: 12px;
         padding-left: 25px;
-        padding-bottom:0px;
+        padding-bottom: 0px;
         border-radius: 20px;
-        background-color: #1d1d1d;
+        background-color: $black-color-font;
         cursor: pointer;
         color: $main-color-font;
         transition: all 0.2s ease;
@@ -114,7 +113,17 @@ body{
             width: 135px;
         }
     }
-
+    @media screen and (max-width: $screen-size-phone) {
+        #back-button{
+            padding-top: 8px;
+            width: 90px;
+            padding-left: 18px;
+            p{
+                font-size: 12px;
+            }
+        }
+    }
+    
     #profile{
         .image{
             background:url('res/img/profile.jpeg');
@@ -155,6 +164,18 @@ body{
         }
         .info-container{
             width: 450px;
+            a{
+                padding:10px 5px 0 7px;
+                display:inline-block;
+                background-color:$main-color-font;
+                color:$black-color-font;
+                font-size: 21px;
+                line-height: 0.9em;
+                &:hover{
+                    background-color: $secondary-color-font;
+                }
+            }
+  
         }
         @media screen and (max-width: $screen-size-xxl) {
             .social-icons-container1{
@@ -239,6 +260,12 @@ body{
                 padding-top: 10px;
             }
         }
+        #info-education > ul{
+            list-style-image: url('/res/img/bullet_list-3h.png');
+            p{
+                padding-left: 15px;
+            }
+        }
         @media screen and (max-width: $screen-size-xxl) {
             #logo{
             text-align: center;
@@ -248,6 +275,10 @@ body{
             }
             #info-education{
                 text-align: center;
+            }
+            #info-education > ul{
+                text-align: left;
+                padding-left: 15%;
             }
         }
     }
@@ -372,6 +403,51 @@ body{
 @media screen and (max-width: $screen-size-phone) {
     .right-content {
         padding: 20px 20px;
+    }
+}
+
+.about-me{
+    #back-button{
+        background-color: $main-color-font;
+        a{
+            color: $black-color-font;
+        }
+    }
+    .left-content{
+        background:url('res/img/david_triana_front_page.webp');
+        background-position: right 70% center;
+        background-size: cover;
+        position: fixed;
+        padding: 0px;
+        height: 100vh;
+        width: 33.33%;
+        top: 0px;
+        left: 0;
+    }
+    @media screen and (max-width: $screen-size-xxl) {
+        .left-content {
+            background-size: cover;
+            background-position: bottom 65% center;
+            position: relative;
+            width: 100%;
+            height: 200px;
+        }
+    }
+    .right-content{
+        padding-top: 30px;
+        padding-left: 20%;
+        padding-right: 20%;
+        h1{
+            text-align: center;
+        }
+    }
+    @media screen and (max-width: $screen-size-phone) {
+        .right-content {
+            padding: 20px 20px;
+        }
+    }
+    p{
+        text-align: justify;
     }
 }
 
