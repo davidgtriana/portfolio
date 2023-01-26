@@ -1,5 +1,7 @@
 /* Rewriting Bootstrap ––––––––––––––––––––––––––––––––––––––––– */
-.row.no-padding>*{padding: 0;}
+.row.no-padding>* {
+    padding: 0;
+}
 
 /* Variables ––––––––––––––––––––––––––––––––––––––––––––––––––– */
 $main-color-font: #ffffff;
@@ -10,12 +12,16 @@ $screen-size-lg: 992px;
 $screen-size-xxl: 1400px;
 
 /* General ––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-body{
+body {
     background-color: $black-color-font;
     color: $main-color-font;
     width: 99%;
 }
-.no-overflow{overflow: hidden;}
+
+.no-overflow {
+    overflow: hidden;
+}
+
 @mixin backgroundCover {
     background-position: center center;
     background-size: cover;
@@ -23,37 +29,121 @@ body{
 }
 
 /* Fonts Defitions ––––––––––––––––––––––––––––––––––––––––––––– */
-@font-face {font-family: "VT323"; src: url(res/fonts/VT323-Regular.ttf);}
-@font-face {font-family: "MINECRAFT"; src: url(res/fonts/Minecraftia-Regular.ttf);}
+@font-face {
+    font-family: "VT323";
+    src: url(res/fonts/VT323-Regular.ttf);
+}
+
+@font-face {
+    font-family: "MINECRAFT";
+    src: url(res/fonts/Minecraftia-Regular.ttf);
+}
 
 /* Typography –––––––––––––––––––––––––––––––––––––––––––––––––– */
- h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-top: 0;
     margin-bottom: 2rem;
-    font-weight: 300; }
- h1 { font-size: 90px; line-height: 0.8;  letter-spacing: -.1rem; font-family: "VT323";}
- h2 { font-size: 80px; line-height: 1.25; letter-spacing: -.1rem; font-family: "VT323";}
- h3 { font-size: 70px; line-height: 1.3;  letter-spacing: -.1rem; font-family: "VT323";}
- h4 { font-size: 60px; line-height: 1; letter-spacing: -.08rem; font-family: "VT323";}
- h5 { font-size: 50px; line-height: 1.2;  letter-spacing: -.05rem; font-family: "VT323";}
- h6 { font-size: 25px; line-height: 1.6;  letter-spacing: 0; font-family: "MINECRAFT";}
- p { margin-top: 0;  font-size: 22px; line-height: 1.8; font-family: "MINECRAFT";}
- a { color:$main-color-font; text-decoration: none;}
- a:hover { color:$secondary-color-font; text-decoration: none;}
- @media screen and (max-width: $screen-size-phone) {
-    h1 { font-size: 60px; }
-    h2 { font-size: 55px; }
-    h3 { font-size: 50px; }
-    h4 { font-size: 45px; }
-    h5 { font-size: 35px; }
-    h6 { font-size: 23px; }
-    p { font-size: 20px;}
- }
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 90px;
+    line-height: 0.8;
+    letter-spacing: -.1rem;
+    font-family: "VT323";
+}
+
+h2 {
+    font-size: 80px;
+    line-height: 1.25;
+    letter-spacing: -.1rem;
+    font-family: "VT323";
+}
+
+h3 {
+    font-size: 70px;
+    line-height: 1.3;
+    letter-spacing: -.1rem;
+    font-family: "VT323";
+}
+
+h4 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -.08rem;
+    font-family: "VT323";
+}
+
+h5 {
+    font-size: 50px;
+    line-height: 1.2;
+    letter-spacing: -.05rem;
+    font-family: "VT323";
+}
+
+h6 {
+    font-size: 25px;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-family: "MINECRAFT";
+}
+
+p {
+    margin-top: 0;
+    font-size: 22px;
+    line-height: 1.8;
+    font-family: "MINECRAFT";
+}
+
+a {
+    color: $main-color-font;
+    text-decoration: none;
+}
+
+a:hover {
+    color: $secondary-color-font;
+    text-decoration: none;
+}
+
+@media screen and (max-width: $screen-size-phone) {
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 55px;
+    }
+
+    h3 {
+        font-size: 50px;
+    }
+
+    h4 {
+        font-size: 45px;
+    }
+
+    h5 {
+        font-size: 35px;
+    }
+
+    h6 {
+        font-size: 23px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}
 
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.left-content{
-    background:url('res/img/front-page.jpg');
+.left-content {
+    background: url('res/img/front-page.jpg');
     background-position: right 45% center;
     background-size: cover;
     position: fixed;
@@ -62,8 +152,9 @@ body{
     width: 33.33%;
     top: 0px;
     left: 0;
-    #logo{
-        background:url('res/img/favicon.ico');
+
+    #logo {
+        background: url('res/img/favicon.ico');
         position: absolute;
         top: 20px;
         left: 20px;
@@ -71,8 +162,9 @@ body{
         height: 50px;
         @include backgroundCover();
     }
-    .over{
-        background: linear-gradient(90deg, rgb(29, 29, 29, 0.6), rgba(29,29,29,0.1) 80%);
+
+    .over {
+        background: linear-gradient(90deg, rgb(29, 29, 29, 0.6), rgba(29, 29, 29, 0.1) 80%);
         //background: linear-gradient(90deg, rgb(255, 134, 114, 0.6), rgba(255, 134, 114,0.1) 80%);
         color: $main-color-font;
         top: 0;
@@ -81,6 +173,7 @@ body{
         width: 100%;
     }
 }
+
 @media screen and (max-width: $screen-size-xxl) {
     .left-content {
         background-size: cover;
@@ -90,13 +183,13 @@ body{
     }
 }
 
-.right-content{
+.right-content {
     padding-top: 30px;
     padding-left: 5%;
     padding-right: 5%;
     min-height:2000px;
 
-    #back-button{
+    #back-button {
         position: relative;
         text-align: left;
         top: 10px;
@@ -110,25 +203,28 @@ body{
         cursor: pointer;
         color: $main-color-font;
         transition: all 0.2s ease;
-        &:hover{
+
+        &:hover {
             padding-left: 20px;
             width: 135px;
         }
     }
+
     @media screen and (max-width: $screen-size-phone) {
-        #back-button{
+        #back-button {
             padding-top: 8px;
             width: 90px;
             padding-left: 18px;
-            p{
+
+            p {
                 font-size: 12px;
             }
         }
     }
-    
-    #profile{
-        .image{
-            background:url('res/img/profile.jpeg');
+
+    #profile {
+        .image {
+            background: url('res/img/profile.jpeg');
             background-position: left center;
             background-size: cover;
             width: 90%;
@@ -139,8 +235,9 @@ body{
             margin-left: auto;
             margin-right: 0;
         }
+
         @media screen and (max-width: $screen-size-xxl) {
-            .image{
+            .image {
                 margin-left: auto;
                 margin-right: auto;
                 width: 50%;
@@ -148,97 +245,113 @@ body{
                 height: 300px;
             }
         }
+
         @media screen and (max-width: $screen-size-phone) {
-            .image{
+            .image {
                 margin-left: auto;
                 margin-right: auto;
                 width: 100%;
                 height: 300px;
             }
         }
-    
-        .social-icons-container1{
+
+        .social-icons-container1 {
             font-size: 40px;
             margin-top: -10px;
         }
-        .social-icons-container2{
+
+        .social-icons-container2 {
             display: none;
         }
-        .info-container{
+
+        .info-container {
             width: 450px;
-            a{
-                padding:10px 5px 0 7px;
-                display:inline-block;
-                background-color:$main-color-font;
-                color:$black-color-font;
+
+            a {
+                padding: 10px 5px 0 7px;
+                display: inline-block;
+                background-color: $main-color-font;
+                color: $black-color-font;
                 font-size: 21px;
                 line-height: 0.9em;
-                &:hover{
+
+                &:hover {
                     background-color: $secondary-color-font;
                 }
             }
-  
+
         }
+
         @media screen and (max-width: $screen-size-xxl) {
-            .social-icons-container1{
+            .social-icons-container1 {
                 display: none;
             }
-            .social-icons-container2{
+
+            .social-icons-container2 {
                 display: flex;
                 text-align: center;
                 font-size: 50px;
                 margin-top: 0px;
             }
-            .info-container{
+
+            .info-container {
                 text-align: center;
                 width: 100%;
                 padding-top: 20px;
-                .text{
+
+                .text {
                     margin: 0 auto;
                     width: 400px;
                 }
             }
         }
+
         @media screen and (max-width: $screen-size-phone) {
-            .social-icons-container2{
+            .social-icons-container2 {
                 display: flex;
                 text-align: left;
                 font-size: 50px;
                 margin-top: -10px;
             }
-            .info-container{
+
+            .info-container {
                 text-align: left;
                 padding-top: 20px;
-                .text{
+
+                .text {
                     margin: 0 0;
                     width: 340px;
                 }
             }
         }
     }
-    
-    hr{
+
+    hr {
         width: 100%;
         height: 3px;
         background-color: $main-color-font;
-        opacity:1;
+        opacity: 1;
     }
-    .button{
+
+    .button {
         background-color: $main-color-font;
         color: $black-color-font;
         padding-top: 27px;
         padding-bottom: 10px;
         margin-bottom: 0px;
     }
-    .button:hover{
+
+    .button:hover {
         background-color: $secondary-color-font;
         cursor: pointer;
     }
+
     @media screen and (max-width: 992px) {
         .button {
             margin-bottom: 10px;
         }
-        hr{
+
+        hr {
             margin-top: 7px;
         }
     }
@@ -248,56 +361,69 @@ body{
         .row{
             padding: 30px 0px;
         }
+
         max-width: 1000px;
-        #logo{
+
+        #logo {
             text-align: right;
-            .image{
+
+            .image {
                 width: 50%;
                 min-width: 150px;
                 max-width: 300px;
             }
         }
-        #info-education{
+
+        #info-education {
             text-align: left;
-            #program{
+
+            #program {
                 padding-top: 10px;
             }
         }
-        #info-education > ul{
+
+        #info-education>ul {
             list-style-image: url('/res/img/bullet_list-3h.png');
-            p{
+
+            p {
                 padding-left: 15px;
             }
         }
+
         @media screen and (max-width: $screen-size-xxl) {
-            #logo{
-            text-align: center;
-            .image{
-                width: 50%;
+            #logo {
+                text-align: center;
+
+                .image {
+                    width: 50%;
+                }
             }
-            }
-            #info-education{
+
+            #info-education {
                 text-align: center;
             }
-            #info-education > ul{
+
+            #info-education>ul {
                 text-align: left;
                 padding-left: 15%;
             }
         }
     }
-   
-    .projects{
-        .spacing{
+
+    .projects {
+        .spacing {
             background-clip: padding-box;
             border: 5px solid transparent;
         }
-        .project{
+
+        .project {
             position: relative;
             height: 350px;
             width: 100%;
             transition: .3s ease-in-out;
             cursor: pointer;
-            .bg{
+
+            .bg {
                 background-color: rgb(29, 29, 29, 0);
                 color: rgb(255, 255, 255, 0);
                 position: absolute;
@@ -306,12 +432,14 @@ body{
                 height: 100%;
                 width: 100%;
                 transition: .3s ease-in-out;
-                &:hover{
+
+                &:hover {
                     background-color: rgb(29, 29, 29, 0.4);
                     color: rgb(255, 255, 255, 1);
                 }
             }
-            .name{
+
+            .name {
                 margin-top: 10px;
                 height: 100%;
                 display: flex;
@@ -319,105 +447,124 @@ body{
                 align-items: center;
                 text-align: center;
             }
-            &:hover{
+
+            &:hover {
                 transform: scale(1.2);
             }
         }
+
         @media screen and (max-width: $screen-size-xxl) {
             .project {
                 height: 300px;
             }
         }
+
         @media screen and (max-width: $screen-size-lg) {
             .project {
                 height: 230px;
             }
         }
+
         @media screen and (max-width: $screen-size-phone) {
             .project {
                 height: 140px;
-                .bg{display: none;}
+
+                .bg {
+                    display: none;
+                }
             }
         }
-        .bg-paper-asteroid{
-            background:url('res/img/itchio_icon.jpg');
+
+        .bg-paper-asteroid {
+            background: url('res/img/itchio_icon.jpg');
             @include backgroundCover();
         }
-        .bg-number-cruncher{
-            background:url('res/img/itchio_icon.jpg');
+
+        .bg-number-cruncher {
+            background: url('res/img/itchio_icon.jpg');
             @include backgroundCover();
         }
-        .bg-dagovt{
-            background:url('res/img/itchio_icon.jpg');
+
+        .bg-dagovt {
+            background: url('res/img/itchio_icon.jpg');
             @include backgroundCover();
         }
-        .bg-blackjack{
-            background:url('res/img/itchio_icon.jpg');
+
+        .bg-blackjack {
+            background: url('res/img/itchio_icon.jpg');
             @include backgroundCover();
         }
-        .bg-dpa{
-            background:url('res/img/itchio_icon.jpg');
+
+        .bg-dpa {
+            background: url('res/img/itchio_icon.jpg');
             @include backgroundCover();
         }
     }
 
 
 
-    
 
-    .paper-asteroid{
-        #banner-project{
-            background:url('res/img/itchio_icon.jpg');
+
+    .paper-asteroid {
+        #banner-project {
+            background: url('res/img/itchio_icon.jpg');
             height: 250px;
             @include backgroundCover();
-        } 
+        }
     }
-    .number-cruncher{
-        #banner-project{
-            background:url('res/img/itchio_icon.jpg');
+
+    .number-cruncher {
+        #banner-project {
+            background: url('res/img/itchio_icon.jpg');
             height: 250px;
             @include backgroundCover();
-        } 
+        }
     }
-    .dagovt{
-        #banner-project{
-            background:url('res/img/itchio_icon.jpg');
+
+    .dagovt {
+        #banner-project {
+            background: url('res/img/itchio_icon.jpg');
             height: 250px;
             @include backgroundCover();
-        } 
+        }
     }
-    .blackjack{
-        #banner-project{
-            background:url('res/img/itchio_icon.jpg');
+
+    .blackjack {
+        #banner-project {
+            background: url('res/img/itchio_icon.jpg');
             height: 250px;
             @include backgroundCover();
-        } 
+        }
     }
-    .dpa{
-        #banner-project{
-            background:url('res/img/itchio_icon.jpg');
+
+    .dpa {
+        #banner-project {
+            background: url('res/img/itchio_icon.jpg');
             height: 250px;
             @include backgroundCover();
-        } 
+        }
     }
 
 
 }
+
 @media screen and (max-width: $screen-size-phone) {
     .right-content {
         padding: 20px 20px;
     }
 }
 
-.about-me{
-    #back-button{
+.about-me {
+    #back-button {
         background-color: $main-color-font;
-        a{
+
+        a {
             color: $black-color-font;
         }
     }
-    .left-content{
-        background:url('res/img/david_triana_front_page.webp');
+
+    .left-content {
+        background: url('res/img/david_triana_front_page.webp');
         background-position: right 70% center;
         background-size: cover;
         position: fixed;
@@ -427,6 +574,7 @@ body{
         top: 0px;
         left: 0;
     }
+
     @media screen and (max-width: $screen-size-xxl) {
         .left-content {
             background-size: cover;
@@ -436,21 +584,24 @@ body{
             height: 200px;
         }
     }
-    .right-content{
+
+    .right-content {
         padding-top: 30px;
         padding-left: 20%;
         padding-right: 20%;
-        h1{
+
+        h1 {
             text-align: center;
         }
     }
+
     @media screen and (max-width: $screen-size-phone) {
         .right-content {
             padding: 20px 20px;
         }
     }
-    p{
+
+    p {
         text-align: justify;
     }
 }
-
