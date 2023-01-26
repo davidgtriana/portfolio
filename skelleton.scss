@@ -13,6 +13,7 @@ $screen-size-xxl: 1400px;
 body{
     background-color: $black-color-font;
     color: $main-color-font;
+    width: 99%;
 }
 .no-overflow{overflow: hidden;}
 @mixin backgroundCover {
@@ -93,6 +94,7 @@ body{
     padding-top: 30px;
     padding-left: 5%;
     padding-right: 5%;
+    min-height:2000px;
 
     #back-button{
         position: relative;
@@ -241,6 +243,7 @@ body{
         }
     }
     
+
     .education{
         .row{
             padding: 30px 0px;
