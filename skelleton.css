@@ -18,12 +18,8 @@ body {
 
 /* Fonts Defitions ––––––––––––––––––––––––––––––––––––––––––––– */
 @font-face {
-  font-family: "VT323";
-  src: url(res/fonts/VT323-Regular.ttf);
-}
-@font-face {
-  font-family: "MINECRAFT";
-  src: url(res/fonts/Minecraftia-Regular.ttf);
+  font-family: "Lato";
+  src: url(res/fonts/Lato-Regular.ttf);
 }
 /* Typography –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1,
