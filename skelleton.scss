@@ -15,7 +15,7 @@ $screen-size-xxl: 1400px;
 body {
     background-color: $black-color-font;
     color: $main-color-font;
-    width: 99%;
+    font-family: "Lato";
 }
 
 .no-overflow {
@@ -55,7 +55,6 @@ h1 {
     font-size: 40pt;
     line-height: 0.8;
     letter-spacing: -.1rem;
-    font-family: "Lato";
     font-weight: bold;
 }
 
@@ -63,7 +62,6 @@ h2 {
     font-size: 35pt;
     line-height: 1.25;
     letter-spacing: -.1rem;
-    font-family: "Lato";
     font-weight: bold;
 }
 
@@ -71,7 +69,6 @@ h3 {
     font-size: 35pt;
     line-height: 1.3;
     letter-spacing: -.1rem;
-    font-family: "Lato";
     font-weight: regular;
 }
 
@@ -79,7 +76,6 @@ h4 {
     font-size: 30px;
     line-height: 1;
     letter-spacing: -.08rem;
-    font-family: "Lato";
     font-weight: regular;
 }
 
@@ -87,30 +83,26 @@ h5 {
     font-size: 50px;
     line-height: 1.2;
     letter-spacing: -.05rem;
-    font-family: "Lato";
 }
 
 h6 {
     font-size: 25px;
     line-height: 1.6;
     letter-spacing: 0;
-    font-family: "Lato";
 }
 
 p {
     margin-top: 0;
     font-size: 22px;
     line-height: 1.8;
-    font-family: "Lato";
 }
 
 a {
-    color: $main-color-font;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 a:hover {
-    color: $secondary-color-font;
     text-decoration: none;
 }
 
@@ -124,7 +116,7 @@ a:hover {
     }
 
     h3 {
-        font-size: 35pt;
+        font-size: 30pt;
     }
 
     h4 {
@@ -148,7 +140,7 @@ a:hover {
 
 .left-content {
     background: url('res/img/drey_splashart.webp');
-    background-position: right 31% center;
+    background-position: right 30% center;
     background-size: cover;
     position: fixed;
     padding: 0px;
@@ -179,18 +171,41 @@ a:hover {
             width:100%;
             a{
                 padding-right: 10px;
+                color: $main-color-font;
+                &:hover {
+                    color: $secondary-color-font;
+                }
             }
+            
+        }
+        .name{
+            font-size: 40pt;
+            line-height: 0.8;
+            letter-spacing: -.1rem;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+        .salutation{
+            font-size: 30pt;
+            line-height: 1.3;
+            letter-spacing: -.1rem;
+            font-weight: regular;
+            padding-bottom: 40px;
         }
         .about-me{
             a{
                 font-size: 30px;
-                font-family: "Lato";
                 font-weight: bold;
                 background-color: $main-color-font;
                 color: $black-color-font;
                 padding: 22px 35px;
                 border-radius: 45px;
+                &:hover {
+                    background-color: $secondary-color-font;
+                    color: $main-color-font;
+                }
             }
+            
         }
     }
    
@@ -210,14 +225,53 @@ a:hover {
         position: relative;
         width: 100%;
         height: 200px;
+        .card{
+            display:none;
+        }
     }
 }
 
 .right-content {
-    padding-top: 30px;
-    padding-left: 5%;
-    padding-right: 5%;
-    min-height:2000px;
+    //min-height:2000px;
+    .menu{
+        display: flex;
+        justify-content: center;
+        background-color: #242424;
+        padding: 20px 30px;
+        a{
+            font-size: 18pt;
+            line-height: 0.8;
+            letter-spacing: -.1rem;
+            font-weight: lighter;
+            padding-bottom: 10px;
+            padding: 10px 0px;
+            margin: 0px 100px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover{
+                color: $secondary-color-font;
+            }
+            &:after{
+                position: absolute;
+                content: '';
+                height: 2px;
+                bottom: 0px;
+                margin: 0 auto;
+		        left: 0;
+                right: 0;
+		        width: 0%;
+		        background: green;
+                opacity: 0;
+                transition: opacity 0.3s, 0.3s;
+            }
+            &:hover::after, &:focus::after{
+                opacity: 1;
+                width: 100%;
+            }
+        }
+
+    }
 
     #back-button {
         position: relative;
@@ -252,191 +306,152 @@ a:hover {
         }
     }
 
-    #profile {
-        .image {
-            background: url('res/img/profile.jpeg');
-            background-position: left center;
-            background-size: cover;
-            width: 90%;
-            min-width: 200px;
-            max-width: 280px;
-            height: 92%;
-            border-radius: 10px;
-            margin-left: auto;
-            margin-right: 0;
+    .career_content{
+        
+        @mixin underline {
+            position: absolute;
+            content: '';
+            height: 3px;
+            bottom: -10px;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            width: 42px;
+            background: $main-color-font;
         }
 
-        @media screen and (max-width: $screen-size-xxl) {
-            .image {
-                margin-left: auto;
-                margin-right: auto;
-                width: 50%;
-                max-width: none;
-                height: 300px;
-            }
+        .title{
+            font-size: 25pt;
+            line-height: 0.8;
+            letter-spacing: -.1rem;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            padding: 10px 0px;
+            margin-bottom: 25px;
+            &:after { @include underline();}
         }
+        .section1{
+            padding: 40px 5%;
+            background-color: #1C1C1C;
 
-        @media screen and (max-width: $screen-size-phone) {
-            .image {
-                margin-left: auto;
-                margin-right: auto;
-                width: 100%;
-                height: 300px;
-            }
-        }
-
-        .social-icons-container1 {
-            font-size: 40px;
-            margin-top: -10px;
-        }
-
-        .social-icons-container2 {
-            display: none;
-        }
-
-        .info-container {
-            width: 450px;
-
-            a {
-                padding: 10px 5px 0 7px;
-                display: inline-block;
-                background-color: $main-color-font;
-                color: $black-color-font;
-                font-size: 21px;
-                line-height: 0.9em;
-
-                &:hover {
-                    background-color: $secondary-color-font;
+            .buttons{
+                padding-bottom: 20px;
+                display:flex;
+                justify-content: center;
+                a{
+                    background-color: $main-color-font;
+                    color: $black-color-font;
+                    font-size: 20pt;
+                    font-weight: bold;
+                    padding: 5px 20px;
+                    border-radius: 8px;
+                    margin: 0px 10px;
+                    &:hover {
+                        background-color: $secondary-color-font;
+                        color: $main-color-font;
+                    }
                 }
             }
-
+            .subtitle{
+                font-size: 25pt;
+                line-height: 1.5;
+                letter-spacing: -.1rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            table{
+                margin-left: 20px;
+                td{
+                    padding: 3px;
+                }
+            }
+            ul{
+                font-size: 17pt;
+                line-height: 1.2;
+                font-weight: regular;
+            }
+        }
+        .section2{
+            padding: 40px 15%;
+            .card{
+                border: transparent;
+                background-color: transparent;
+                .name{
+                    font-size: 22pt;
+                    line-height: 1.2;
+                    font-weight: bold;
+                    
+                }
+                .institution{
+                    font-size: 17pt;
+                    line-height: 1.2;
+                    font-weight: regular;
+                }
+                .location, .year{
+                    font-size: 14pt;
+                    line-height: 1.2;
+                    font-weight: bold;
+                }
+                .description{
+                    font-size: 14pt;
+                    line-height: 1.2;
+                    font-weight: regular;
+                    li{
+                        padding-top: 10px;
+                    }
+                }
+            }
         }
 
         @media screen and (max-width: $screen-size-xxl) {
-            .social-icons-container1 {
-                display: none;
+
+        }
+    }
+
+    .about_content{
+        padding: 40px 20%;
+        .section1{
+            
+            .name{
+                font-size: 30pt;
+                line-height: 1.2;
+                font-weight: bold;
             }
-
-            .social-icons-container2 {
-                display: flex;
-                text-align: center;
-                font-size: 50px;
-                margin-top: 0px;
-            }
-
-            .info-container {
-                text-align: center;
-                width: 100%;
-                padding-top: 20px;
-
-                .text {
+            .position{
+                font-size: 21pt;
+                line-height: 1.2;
+                font-weight: lighter;
+                position: relative;
+                padding-bottom: 10x;
+                margin-bottom: 18px;
+                &:after{
+                    position: absolute;
+                    content: '';
+                    height: 3px;
+                    bottom: -15px;
                     margin: 0 auto;
-                    width: 400px;
+                    left: 0;
+                    width: 42px;
+                    background: $main-color-font;
                 }
+                
             }
-        }
-
-        @media screen and (max-width: $screen-size-phone) {
-            .social-icons-container2 {
-                display: flex;
-                text-align: left;
-                font-size: 50px;
-                margin-top: -10px;
-            }
-
-            .info-container {
-                text-align: left;
-                padding-top: 20px;
-
-                .text {
-                    margin: 0 0;
-                    width: 340px;
-                }
-            }
-        }
-    }
-
-    hr {
-        width: 100%;
-        height: 3px;
-        background-color: $main-color-font;
-        opacity: 1;
-    }
-
-    .button {
-        background-color: $main-color-font;
-        color: $black-color-font;
-        padding-top: 27px;
-        padding-bottom: 10px;
-        margin-bottom: 0px;
-    }
-
-    .button:hover {
-        background-color: $secondary-color-font;
-        cursor: pointer;
-    }
-
-    @media screen and (max-width: 992px) {
-        .button {
-            margin-bottom: 10px;
-        }
-
-        hr {
-            margin-top: 7px;
-        }
-    }
-    
-
-    .education{
-        .row{
-            padding: 30px 0px;
-        }
-
-        max-width: 1000px;
-
-        #logo {
-            text-align: right;
-
-            .image {
-                width: 50%;
-                min-width: 150px;
-                max-width: 300px;
-            }
-        }
-
-        #info-education {
-            text-align: left;
-
-            #program {
+            .description{
                 padding-top: 10px;
+                font-size: 19pt;
+                line-height: 1.2;
+                font-weight: regular;
+                text-align: justify;
+                text-justify: inter-word;
             }
         }
-
-        #info-education>ul {
-            list-style-image: url('/res/img/bullet_list-3h.png');
-
-            p {
-                padding-left: 15px;
-            }
-        }
-
-        @media screen and (max-width: $screen-size-xxl) {
-            #logo {
-                text-align: center;
-
-                .image {
-                    width: 50%;
-                }
-            }
-
-            #info-education {
-                text-align: center;
-            }
-
-            #info-education>ul {
-                text-align: left;
-                padding-left: 15%;
-            }
+        .section2{
+            font-size: 19pt;
+            line-height: 1.2;
+            font-weight: regular;
+            text-align: justify;
+            text-justify: inter-word;
         }
     }
 
@@ -535,52 +550,12 @@ a:hover {
 
 
 
-    .paper-asteroid {
-        #banner-project {
-            background: url('res/img/itchio_icon.jpg');
-            height: 250px;
-            @include backgroundCover();
-        }
-    }
-
-    .number-cruncher {
-        #banner-project {
-            background: url('res/img/itchio_icon.jpg');
-            height: 250px;
-            @include backgroundCover();
-        }
-    }
-
-    .dagovt {
-        #banner-project {
-            background: url('res/img/itchio_icon.jpg');
-            height: 250px;
-            @include backgroundCover();
-        }
-    }
-
-    .blackjack {
-        #banner-project {
-            background: url('res/img/itchio_icon.jpg');
-            height: 250px;
-            @include backgroundCover();
-        }
-    }
-
-    .dpa {
-        #banner-project {
-            background: url('res/img/itchio_icon.jpg');
-            height: 250px;
-            @include backgroundCover();
-        }
-    }
-
 
 }
 
 @media screen and (max-width: $screen-size-phone) {
     .right-content {
-        padding: 20px 20px;
+        margin-left: 0px;
     }
 }
 
@@ -615,15 +590,7 @@ a:hover {
         }
     }
 
-    .right-content {
-        padding-top: 30px;
-        padding-left: 20%;
-        padding-right: 20%;
-
-        h1 {
-            text-align: center;
-        }
-    }
+    
 
     @media screen and (max-width: $screen-size-phone) {
         .right-content {

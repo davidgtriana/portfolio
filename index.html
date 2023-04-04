@@ -15,9 +15,9 @@
 </head>
 <body>
     <div class="container_fluid">
-        <div class="row">
-            <div class="col-xxl-4 col-12">
-                <div class="left-content no no-padding">
+        <div class="row nopadding">
+            <div class="col-xxl-4 col-12" style="padding-right: 0px;">
+                <div class="left-content">
                     <div id="logo"></div>
                     <div class="card">
                         <div class="social-icons-container">
@@ -34,65 +34,26 @@
                                 <i class="fa-solid fa-envelope fa-3x"></i>
                             </a>
                         </div>
-                        <h1>David Triana</h1>
-                        <h3>Hi, I'm a game developer <br>based in Canada</h3>
-                        <div class="about-me"><a>About me</a></div>
+                        <div class="name">David Triana</div>
+                        <div class="salutation">Hi, I'm a game developer <br>based in Canada</div>
+                        <div class="about-me"><a onclick="loadContent('about')">About me</a></div>
                     </div>
                     <div class="over"></div>
                 </div>
             </div>
-            <div class="col-xxl-8 col-12">
+
+
+            <div class="col-xxl-8 col-12" style="padding: 0px;">
                 <div class="container_fluid right-content">
-                    <!-- Profile Image, Social Media Desktop, and info-->
-                    <div id="profile" class="row">
-                        <div class="col-xxl-3 col-12">
-                            <div class="image"></div>
-                        </div>
-                        <div class="col-1 text-center social-icons-container1">
-                            <div class="row"><a href="https://www.linkedin.com/in/davidgtriana/" target=”_blank”>
-                                <i class="fa-brands fa-linkedin"></i>
-                            </a></div>
-                            <div class="row"><a href="https://www.instagram.com/davidgtriana/" target=”_blank”>
-                                <i class="fa-brands fa-instagram-square"></i>
-                            </a></div>
-                            <div class="row"><a href="https://twitter.com/davidgtriana" target=”_blank”>
-                                <i class="fa-brands fa-twitter-square"></i>
-                            </a></div>
-                            <div class="row"><a href="https://github.com/davidgtriana" target=”_blank”>
-                                <i class="fa-brands fa-github-square"></i>
-                            </a></div>
-                        </div>
-                        <div class="col-xxl-8 col-12 info-container">
-                            <h1>Davidcito</h1>
-                            <p class="text">Hi, I’m a game developer and tutor based in Canada
-                              <a href="/about-me.html">+</a>
-                            </p>
-                        </div>
+                    <div class="menu">
+                        <!--<div class="option">PROJECTS</div>-->
+                        <a onclick="loadContent('career')">CAREER</a>
+                        <a onclick="loadContent('about')">ABOUT & RESUME</a>
                     </div>
+                    <div id="content-option"></div>
 
-                    <!--Social Media Mobile-->
-                    <div id="profile">
-                        <div class="row social-icons-container2">
-                            <div class="col-12">
-                                <a href="https://www.linkedin.com/in/davidgtriana/">
-                                    <i class="fa-brands fa-linkedin"></i>
-                                </a>
-                                <a href="https://www.instagram.com/davidgtriana/">
-                                    <i class="fa-brands fa-instagram-square"></i>
-                                </a>
-                                <a href="https://twitter.com/davidgtriana">
-                                    <i class="fa-brands fa-twitter-square"></i>
-                                </a>
-                                <a href="https://github.com/davidgtriana">
-                                    <i class="fa-brands fa-github-square"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                       
-                    <hr> <!--Separation-->
 
-                    <!--Buttons for fetching Section 1-->
+                    <!--
                     <div class="row text-center">
                         <div class="col-lg-4 col-12">  
                             <h6 class="button" onclick="loadContent('projects', 1)">Projects</h6>
@@ -104,16 +65,8 @@
                             <h6 class="button" onclick="loadContent('skills', 1)">Skills</h6>
                         </div>
                     </div>
-
-                    <hr><!--Separation-->
-
-                    <div id="bottom">
-                        <div class="row">
-                            <div id="container-section1"></div>
-                            <div id="container-section2"></div>
-                        </div>
-                    </div>
-                </div> <!-- Closing Right-Content -->
+                    -->
+                </div> 
             </div> 
         </div>
     </div>

@@ -9,7 +9,7 @@
 body {
   background-color: #3A3A3A;
   color: #ffffff;
-  width: 99%;
+  font-family: "Lato";
 }
 
 .no-overflow {
@@ -41,7 +41,6 @@ h1 {
   font-size: 40pt;
   line-height: 0.8;
   letter-spacing: -0.1rem;
-  font-family: "Lato";
   font-weight: bold;
 }
 
@@ -49,7 +48,6 @@ h2 {
   font-size: 35pt;
   line-height: 1.25;
   letter-spacing: -0.1rem;
-  font-family: "Lato";
   font-weight: bold;
 }
 
@@ -57,7 +55,6 @@ h3 {
   font-size: 35pt;
   line-height: 1.3;
   letter-spacing: -0.1rem;
-  font-family: "Lato";
   font-weight: regular;
 }
 
@@ -65,7 +62,6 @@ h4 {
   font-size: 30px;
   line-height: 1;
   letter-spacing: -0.08rem;
-  font-family: "Lato";
   font-weight: regular;
 }
 
@@ -73,30 +69,26 @@ h5 {
   font-size: 50px;
   line-height: 1.2;
   letter-spacing: -0.05rem;
-  font-family: "Lato";
 }
 
 h6 {
   font-size: 25px;
   line-height: 1.6;
   letter-spacing: 0;
-  font-family: "Lato";
 }
 
 p {
   margin-top: 0;
   font-size: 22px;
   line-height: 1.8;
-  font-family: "Lato";
 }
 
 a {
-  color: #ffffff;
   text-decoration: none;
+  transition: 0.4s;
 }
 
 a:hover {
-  color: #99CC83;
   text-decoration: none;
 }
 
@@ -108,7 +100,7 @@ a:hover {
     font-size: 55pt;
   }
   h3 {
-    font-size: 35pt;
+    font-size: 30pt;
   }
   h4 {
     font-size: 45pt;
@@ -126,7 +118,7 @@ a:hover {
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .left-content {
   background: url("res/img/drey_splashart.webp");
-  background-position: right 31% center;
+  background-position: right 30% center;
   background-size: cover;
   position: fixed;
   padding: 0px;
@@ -160,15 +152,36 @@ a:hover {
 }
 .left-content .card .social-icons-container a {
   padding-right: 10px;
+  color: #ffffff;
+}
+.left-content .card .social-icons-container a:hover {
+  color: #99CC83;
+}
+.left-content .card .name {
+  font-size: 40pt;
+  line-height: 0.8;
+  letter-spacing: -0.1rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.left-content .card .salutation {
+  font-size: 30pt;
+  line-height: 1.3;
+  letter-spacing: -0.1rem;
+  font-weight: regular;
+  padding-bottom: 40px;
 }
 .left-content .card .about-me a {
   font-size: 30px;
-  font-family: "Lato";
   font-weight: bold;
   background-color: #ffffff;
   color: #3A3A3A;
   padding: 22px 35px;
   border-radius: 45px;
+}
+.left-content .card .about-me a:hover {
+  background-color: #99CC83;
+  color: #ffffff;
 }
 .left-content .over {
   background: rgba(29, 29, 29, 0.4);
@@ -186,12 +199,47 @@ a:hover {
     width: 100%;
     height: 200px;
   }
+  .left-content .card {
+    display: none;
+  }
 }
-.right-content {
-  padding-top: 30px;
-  padding-left: 5%;
-  padding-right: 5%;
-  min-height: 2000px;
+.right-content .menu {
+  display: flex;
+  justify-content: center;
+  background-color: #242424;
+  padding: 20px 30px;
+}
+.right-content .menu a {
+  font-size: 18pt;
+  line-height: 0.8;
+  letter-spacing: -0.1rem;
+  font-weight: lighter;
+  padding-bottom: 10px;
+  padding: 10px 0px;
+  margin: 0px 100px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.right-content .menu a:hover {
+  color: #99CC83;
+}
+.right-content .menu a:after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  bottom: 0px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 0%;
+  background: green;
+  opacity: 0;
+  transition: opacity 0.3s, 0.3s;
+}
+.right-content .menu a:hover::after, .right-content .menu a:focus::after {
+  opacity: 1;
+  width: 100%;
 }
 .right-content #back-button {
   position: relative;
@@ -222,157 +270,137 @@ a:hover {
     font-size: 12px;
   }
 }
-.right-content #profile .image {
-  background: url("res/img/profile.jpeg");
-  background-position: left center;
-  background-size: cover;
-  width: 90%;
-  min-width: 200px;
-  max-width: 280px;
-  height: 92%;
-  border-radius: 10px;
-  margin-left: auto;
-  margin-right: 0;
+.right-content .career_content .title {
+  font-size: 25pt;
+  line-height: 0.8;
+  letter-spacing: -0.1rem;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  padding: 10px 0px;
+  margin-bottom: 25px;
 }
-@media screen and (max-width: 1400px) {
-  .right-content #profile .image {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    max-width: none;
-    height: 300px;
-  }
-}
-@media screen and (max-width: 575px) {
-  .right-content #profile .image {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    height: 300px;
-  }
-}
-.right-content #profile .social-icons-container1 {
-  font-size: 40px;
-  margin-top: -10px;
-}
-.right-content #profile .social-icons-container2 {
-  display: none;
-}
-.right-content #profile .info-container {
-  width: 450px;
-}
-.right-content #profile .info-container a {
-  padding: 10px 5px 0 7px;
-  display: inline-block;
-  background-color: #ffffff;
-  color: #3A3A3A;
-  font-size: 21px;
-  line-height: 0.9em;
-}
-.right-content #profile .info-container a:hover {
-  background-color: #99CC83;
-}
-@media screen and (max-width: 1400px) {
-  .right-content #profile .social-icons-container1 {
-    display: none;
-  }
-  .right-content #profile .social-icons-container2 {
-    display: flex;
-    text-align: center;
-    font-size: 50px;
-    margin-top: 0px;
-  }
-  .right-content #profile .info-container {
-    text-align: center;
-    width: 100%;
-    padding-top: 20px;
-  }
-  .right-content #profile .info-container .text {
-    margin: 0 auto;
-    width: 400px;
-  }
-}
-@media screen and (max-width: 575px) {
-  .right-content #profile .social-icons-container2 {
-    display: flex;
-    text-align: left;
-    font-size: 50px;
-    margin-top: -10px;
-  }
-  .right-content #profile .info-container {
-    text-align: left;
-    padding-top: 20px;
-  }
-  .right-content #profile .info-container .text {
-    margin: 0 0;
-    width: 340px;
-  }
-}
-.right-content hr {
-  width: 100%;
+.right-content .career_content .title:after {
+  position: absolute;
+  content: "";
   height: 3px;
-  background-color: #ffffff;
-  opacity: 1;
+  bottom: -10px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 42px;
+  background: #ffffff;
 }
-.right-content .button {
+.right-content .career_content .section1 {
+  padding: 40px 5%;
+  background-color: #1C1C1C;
+}
+.right-content .career_content .section1 .buttons {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.right-content .career_content .section1 .buttons a {
   background-color: #ffffff;
   color: #3A3A3A;
-  padding-top: 27px;
-  padding-bottom: 10px;
-  margin-bottom: 0px;
+  font-size: 20pt;
+  font-weight: bold;
+  padding: 5px 20px;
+  border-radius: 8px;
+  margin: 0px 10px;
 }
-.right-content .button:hover {
+.right-content .career_content .section1 .buttons a:hover {
   background-color: #99CC83;
-  cursor: pointer;
+  color: #ffffff;
 }
-@media screen and (max-width: 992px) {
-  .right-content .button {
-    margin-bottom: 10px;
-  }
-  .right-content hr {
-    margin-top: 7px;
-  }
+.right-content .career_content .section1 .subtitle {
+  font-size: 25pt;
+  line-height: 1.5;
+  letter-spacing: -0.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-.right-content .education {
-  max-width: 1000px;
+.right-content .career_content .section1 table {
+  margin-left: 20px;
 }
-.right-content .education .row {
-  padding: 30px 0px;
+.right-content .career_content .section1 table td {
+  padding: 3px;
 }
-.right-content .education #logo {
-  text-align: right;
+.right-content .career_content .section1 ul {
+  font-size: 17pt;
+  line-height: 1.2;
+  font-weight: regular;
 }
-.right-content .education #logo .image {
-  width: 50%;
-  min-width: 150px;
-  max-width: 300px;
+.right-content .career_content .section2 {
+  padding: 40px 15%;
 }
-.right-content .education #info-education {
-  text-align: left;
+.right-content .career_content .section2 .card {
+  border: transparent;
+  background-color: transparent;
 }
-.right-content .education #info-education #program {
+.right-content .career_content .section2 .card .name {
+  font-size: 22pt;
+  line-height: 1.2;
+  font-weight: bold;
+}
+.right-content .career_content .section2 .card .institution {
+  font-size: 17pt;
+  line-height: 1.2;
+  font-weight: regular;
+}
+.right-content .career_content .section2 .card .location, .right-content .career_content .section2 .card .year {
+  font-size: 14pt;
+  line-height: 1.2;
+  font-weight: bold;
+}
+.right-content .career_content .section2 .card .description {
+  font-size: 14pt;
+  line-height: 1.2;
+  font-weight: regular;
+}
+.right-content .career_content .section2 .card .description li {
   padding-top: 10px;
 }
-.right-content .education #info-education > ul {
-  list-style-image: url("/res/img/bullet_list-3h.png");
+.right-content .about_content {
+  padding: 40px 20%;
 }
-.right-content .education #info-education > ul p {
-  padding-left: 15px;
+.right-content .about_content .section1 .name {
+  font-size: 30pt;
+  line-height: 1.2;
+  font-weight: bold;
 }
-@media screen and (max-width: 1400px) {
-  .right-content .education #logo {
-    text-align: center;
-  }
-  .right-content .education #logo .image {
-    width: 50%;
-  }
-  .right-content .education #info-education {
-    text-align: center;
-  }
-  .right-content .education #info-education > ul {
-    text-align: left;
-    padding-left: 15%;
-  }
+.right-content .about_content .section1 .position {
+  font-size: 21pt;
+  line-height: 1.2;
+  font-weight: lighter;
+  position: relative;
+  padding-bottom: 10x;
+  margin-bottom: 18px;
+}
+.right-content .about_content .section1 .position:after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  bottom: -15px;
+  margin: 0 auto;
+  left: 0;
+  width: 42px;
+  background: #ffffff;
+}
+.right-content .about_content .section1 .description {
+  padding-top: 10px;
+  font-size: 19pt;
+  line-height: 1.2;
+  font-weight: regular;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.right-content .about_content .section2 {
+  font-size: 19pt;
+  line-height: 1.2;
+  font-weight: regular;
+  text-align: justify;
+  text-justify: inter-word;
 }
 .right-content .projects .spacing {
   background-clip: padding-box;
@@ -458,45 +486,10 @@ a:hover {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.right-content .paper-asteroid #banner-project {
-  background: url("res/img/itchio_icon.jpg");
-  height: 250px;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.right-content .number-cruncher #banner-project {
-  background: url("res/img/itchio_icon.jpg");
-  height: 250px;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.right-content .dagovt #banner-project {
-  background: url("res/img/itchio_icon.jpg");
-  height: 250px;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.right-content .blackjack #banner-project {
-  background: url("res/img/itchio_icon.jpg");
-  height: 250px;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.right-content .dpa #banner-project {
-  background: url("res/img/itchio_icon.jpg");
-  height: 250px;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 
 @media screen and (max-width: 575px) {
   .right-content {
-    padding: 20px 20px;
+    margin-left: 0px;
   }
 }
 .about-me #back-button {
@@ -524,14 +517,6 @@ a:hover {
     width: 100%;
     height: 200px;
   }
-}
-.about-me .right-content {
-  padding-top: 30px;
-  padding-left: 20%;
-  padding-right: 20%;
-}
-.about-me .right-content h1 {
-  text-align: center;
 }
 @media screen and (max-width: 575px) {
   .about-me .right-content {
