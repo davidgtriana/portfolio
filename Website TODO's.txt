@@ -1,0 +1,12 @@
+Website TODO's:
+
+
+Facebook ID
+
+To have your own Facebook App ID, you will need to create a Facebook developer account and create a new app. Here are the general steps to follow:
+
+Go to the Facebook for Developers website and create a developer account if you don't already have one.
+Create a new app by going to the "My Apps" section of your dashboard and clicking "Create App".
+Choose the type of app you want to create (e.g. website, mobile app, etc.) and follow the prompts to complete the setup process.
+Once your app is set up, go to the "Settings" section of your app's dashboard and look for the "App ID" field. This is your Facebook App ID, which you can use in the "fb:app_id" meta tag on your web pages.
+Note that Facebook has specific guidelines and policies for using App IDs and other developer tools, so be sure to review their documentation and follow their guidelines to ensure your app is compliant and functional.

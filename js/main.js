@@ -12,7 +12,7 @@ function loadContent(file) {
 
     // Put the loaded content into the div
     .then((content) => {
-      document.getElementById("content-option").innerHTML = content;
+      document.getElementById("wrapper-body").innerHTML = content;
     })
 
     // Catch errors

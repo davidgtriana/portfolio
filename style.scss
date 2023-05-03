@@ -1,27 +1,46 @@
-/* Rewriting Bootstrap ––––––––––––––––––––––––––––––––––––––––– */
 .row.no-padding>* {
     padding: 0;
 }
 
 /* Variables ––––––––––––––––––––––––––––––––––––––––––––––––––– */
-$main-color-font: #ffffff;
-$black-color-font: #3A3A3A;
-$secondary-color-font: #99CC83;
-$screen-size-phone: 575px;
-$screen-size-lg: 992px;
-$screen-size-xxl: 1400px;
+$white-color: #ffffff;
+$dark-color: #3A3A3A;
+$black-color: #242424;
+$secondary-color: #99CC83;
+$hover-link-color: #979ACC;
+
+/** Screen Sizes ––––––––––––––––––––––––––––––––––––––––––––––– */
+// 0 - 320          Mobile S
+$screen-size-xs: 374px;     // 320 - 374        Mobile M        XS
+$screen-size-sm: 424px;     // 375 - 424        Mobile L        XS
+$screen-size-md: 767px;     // 425 - 767        Tablet          MD
+$screen-size-lg: 1023px;    // 768 - 1023       Laptop          LG XL
+$screen-size-xl: 1439px;    // 1024 - 1439      Laptop Large    XXL
+$screen-size-xxl: none;     // 1440 - 2560      4K
+
+/*                            //  Breakpoint      Dimensions
+$screen-size-xs: 576px;     //  x-small             <576 px
+$screen-size-sm: 768px;     //  small               >=576 px
+$screen-size-md: 992px;     //  medium              >=768 px
+$screen-size-lg: 1200px;     //  large              >=992 px
+$screen-size-xl: 1400px;     //  extra large        >=1200 px
+$screen-size-xxl: none;    //  extra extra large    >=1400 px
 
 /* General ––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 body {
-    background-color: $black-color-font;
-    color: $main-color-font;
+    background-color: $dark-color;
+    color: $white-color;
     font-family: "Lato";
 }
-
 .no-overflow {
     overflow: hidden;
 }
-
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
 @mixin backgroundCover {
     background-position: center center;
     background-size: cover;
@@ -31,10 +50,51 @@ body {
 /* Fonts Defitions ––––––––––––––––––––––––––––––––––––––––––––– */
 @font-face {
     font-family: "Lato";
-    src: url(res/fonts/Lato-Regular.ttf);
+    src: url(assets/fonts/Lato-Regular.ttf);
 }
 
 /* Typography –––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1 {
+    font-size: 48px;
+    line-height: 0.8;
+    letter-spacing: -.1rem;
+    font-weight: bold;
+}
+h2 {
+    font-size: 40px;
+    line-height: 1.25;
+    letter-spacing: -.1rem;
+    font-weight: bold;
+}
+h3 {
+    font-size: 35px;
+    line-height: 1.3;
+    letter-spacing: -.1rem;
+    font-weight: regular;
+}
+h4 {
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -.08rem;
+    font-weight: regular;
+}
+h5 {
+    font-size: 50px;
+    line-height: 1.2;
+    letter-spacing: -.05rem;
+}
+h6 {
+    font-size: 25px;
+    line-height: 1.6;
+    letter-spacing: 0;
+}
+p {
+    margin-top: 0;
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+/*
 h1,
 h2,
 h3,
@@ -44,97 +104,53 @@ h6 {
     margin-top: 0;
     margin-bottom: 2rem;
     font-weight: 300;
+}*/
+
+@media screen and (max-width: $screen-size-xl) {
+    h1{ font-size: 45px;}
+    h2{ font-size: 35px;}
+    h3{ font-size: 30px;}
+    h4{ font-size: 28px;}
+    h5{ font-size: 18px;}
+    h6{ font-size: 16px;}
 }
-
-h1 {
-    font-size: 40pt;
-    line-height: 0.8;
-    letter-spacing: -.1rem;
-    font-weight: bold;
+@media screen and (max-width: $screen-size-lg) {  
+    h1{ font-size: 40px;}
+    h2{ font-size: 25px;}
+    h3{ font-size: 26px;}
+    h4{ font-size: 22px;}
+    h5{ font-size: 18px;}
+    h6{ font-size: 16px;}
 }
-
-h2 {
-    font-size: 35pt;
-    line-height: 1.25;
-    letter-spacing: -.1rem;
-    font-weight: bold;
+@media screen and (max-width: $screen-size-md) {
+    h1{ font-size: 30px;}
+    h2{ font-size: 25px;}
+    h3{ font-size: 22px;}
+    h4{ font-size: 20px;}
+    h5{ font-size: 18px;}
+    h6{ font-size: 16px;}
 }
-
-h3 {
-    font-size: 35pt;
-    line-height: 1.3;
-    letter-spacing: -.1rem;
-    font-weight: regular;
+@media screen and (max-width: $screen-size-sm) { 
+    h1{ font-size: 30px;}
+    h2{ font-size: 25px;}
+    h3{ font-size: 22px;}
+    h4{ font-size: 20px;}
+    h5{ font-size: 18px;}
+    h6{ font-size: 16px;}
 }
-
-h4 {
-    font-size: 30px;
-    line-height: 1;
-    letter-spacing: -.08rem;
-    font-weight: regular;
-}
-
-h5 {
-    font-size: 50px;
-    line-height: 1.2;
-    letter-spacing: -.05rem;
-}
-
-h6 {
-    font-size: 25px;
-    line-height: 1.6;
-    letter-spacing: 0;
-}
-
-p {
-    margin-top: 0;
-    font-size: 22px;
-    line-height: 1.8;
-}
-
-a {
-    text-decoration: none;
-    transition: 0.4s;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-@media screen and (max-width: $screen-size-phone) {
-    h1 {
-        font-size: 60pt;
-    }
-
-    h2 {
-        font-size: 55pt;
-    }
-
-    h3 {
-        font-size: 30pt;
-    }
-
-    h4 {
-        font-size: 45pt;
-    }
-
-    h5 {
-        font-size: 35pt;
-    }
-
-    h6 {
-        font-size: 23pt;
-    }
-
-    p {
-        font-size: 20pt;
-    }
+@media screen and (max-width: $screen-size-xs) { 
+    h1{ font-size: 30px;}
+    h2{ font-size: 25px;}
+    h3{ font-size: 22px;}
+    h4{ font-size: 20px;}
+    h5{ font-size: 18px;}
+    h6{ font-size: 16px;}
 }
 
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.left-content {
-    background: url('res/img/drey_splashart.webp');
+.wrapper-left-side {
+    background: url('/assets/img/drey_splashart.webp');
     background-position: right 30% center;
     background-size: cover;
     position: fixed;
@@ -143,35 +159,61 @@ a:hover {
     width: 33.33%;
     top: 0px;
     left: 0;
+    transition: 0.4s;
 
-    #logo {
-        background: url('res/img/favicon.ico');
+    .logo {
+        background: url('/assets/img/favicon.ico');
         position: absolute;
         top: 20px;
         left: 20px;
         width: 100px;
         height: 100px;
+        padding: 20px;
         @include backgroundCover();
+        background-color: red;
+    }
+    @media screen and (max-width: $screen-size-xl) {
+        .logo{ background-color: pink;}
+    }
+    @media screen and (max-width: $screen-size-lg) {  
+        .logo{ background-color: blue;}
+    }
+    @media screen and (max-width: $screen-size-md) {
+        .logo{ background-color: green;}
+    }
+    @media screen and (max-width: $screen-size-sm) { 
+        .logo{ background-color: yellow;}
+    }
+    @media screen and (max-width: $screen-size-xs) { 
+        .logo{ background-color: purple;}
     }
     .card{
         border: transparent;
         position: absolute;
-        bottom: 50px;
         background-color: transparent;
+        bottom: 50px;
         width: 90%;
         padding-left: 80px;
+        transition: 0.4s;
 
         .social-icons-container{
             padding-bottom: 20px;
             width:100%;
+            font-size: 22px;
             a{
                 padding-right: 10px;
-                color: $main-color-font;
-                &:hover {
-                    color: $secondary-color-font;
+                i{
+                    padding: 8px;
+                    border-radius: 50px;
+                    border: 3px solid $white-color;
+                    color: $white-color;
+                    transition: 0.4s;
+                    &:hover{
+                        border-color: $hover-link-color;
+                        color: $hover-link-color;
+                    }
                 }
             }
-            
         }
         .name{
             font-size: 40pt;
@@ -181,32 +223,43 @@ a:hover {
             padding-bottom: 10px;
         }
         .salutation{
-            font-size: 30pt;
-            line-height: 1.3;
-            letter-spacing: -.1rem;
-            font-weight: regular;
             padding-bottom: 40px;
         }
         .about-me{
             a{
-                font-size: 30px;
                 font-weight: bold;
-                background-color: $main-color-font;
-                color: $black-color-font;
+                background-color: $white-color;
+                color: $dark-color;
                 padding: 22px 35px;
                 border-radius: 45px;
+                transition: 0.4s;
+                cursor: pointer;
                 &:hover {
-                    background-color: $secondary-color-font;
-                    color: $main-color-font;
+                    background-color: $hover-link-color;
+                    color: $white-color;
                 }
             }
             
         }
     }
-   
+    @media screen and (max-width: $screen-size-xl) {
+        .card{ padding-left: 40px;}
+    }
+    @media screen and (max-width: $screen-size-lg) {  
+        .card{ padding-left: 30px;}
+    }
+    @media screen and (max-width: $screen-size-md) {
+        .card{ display: none;}
+    }
+    @media screen and (max-width: $screen-size-sm) { 
+        .card{ background-color: yellow;}
+    }
+    @media screen and (max-width: $screen-size-xs) { 
+        .card{ background-color: purple;}
+    }
+
     .over {
         background: rgb(29, 29, 29, 0.4);
-        color: $main-color-font;
         top: 0;
         left: 0;
         height: 100%;
@@ -214,59 +267,71 @@ a:hover {
     }
 }
 
-@media screen and (max-width: $screen-size-xxl) {
-    .left-content {
+@media screen and (max-width: $screen-size-md) {
+    .wrapper-left-side {
         background-size: cover;
         position: relative;
         width: 100%;
         height: 200px;
-        .card{
-            display:none;
-        }
     }
 }
 
-.right-content {
+.wrapper-right-side {
     //min-height:2000px;
-    .menu{
+    transition: 0.4s;
+
+    nav {
+        background-color: $black-color;
+        padding: 20px 30px;
         display: flex;
         justify-content: center;
-        background-color: #242424;
-        padding: 20px 30px;
-        a{
-            font-size: 18pt;
-            line-height: 0.8;
-            letter-spacing: -.1rem;
-            font-weight: lighter;
-            padding-bottom: 10px;
-            padding: 10px 0px;
-            margin: 0px 100px;
-            position: relative;
-            cursor: pointer;
-            transition: 0.3s;
-            &:hover{
-                color: $secondary-color-font;
-            }
-            &:after{
-                position: absolute;
-                content: '';
-                height: 2px;
-                bottom: 0px;
-                margin: 0 auto;
-		        left: 0;
-                right: 0;
-		        width: 0%;
-		        background: green;
-                opacity: 0;
-                transition: opacity 0.3s, 0.3s;
-            }
-            &:hover::after, &:focus::after{
-                opacity: 1;
-                width: 100%;
-            }
-        }
 
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            li {
+                margin: 0 20px;
+                a{
+                    display: block;
+                    font-size: 22px;
+                    line-height: 0.8;
+                    letter-spacing: -.1rem;
+                    font-weight: lighter;
+                    padding: 10px;
+                    cursor: pointer;
+                    position: relative;
+                    transition: 0.4s;
+                    &:hover {
+                        color: $secondary-color!important;
+                    }
+                    &:after{
+                        position: absolute;
+                        content: '';
+                        height: 2px;
+                        bottom: 0px;
+                        margin: 0 auto;
+                        left: 0;
+                        right: 0;
+                        width: 0%;
+                        background: $secondary-color;
+                        opacity: 0;
+                        transition: opacity 0.3s, 0.3s;
+                    }
+                    &:hover::after, &:focus::after{
+                        opacity: 1;
+                        width: 100%;
+                    }
+                }
+            } 
+        } 
     }
+
+   
+
 
     #back-button {
         position: relative;
@@ -278,18 +343,17 @@ a:hover {
         padding-left: 25px;
         padding-bottom: 0px;
         border-radius: 20px;
-        background-color: $black-color-font;
+        //background-color: $black-color-font;
         cursor: pointer;
-        color: $main-color-font;
+        //color: $main-color-font;
         transition: all 0.2s ease;
-
         &:hover {
             padding-left: 20px;
             width: 135px;
         }
     }
 
-    @media screen and (max-width: $screen-size-phone) {
+    @media screen and (max-width: $screen-size-sm) {
         #back-button {
             padding-top: 8px;
             width: 90px;
@@ -312,7 +376,7 @@ a:hover {
             left: 0;
             right: 0;
             width: 42px;
-            background: $main-color-font;
+            background: $dark-color;
         }
 
         .title{
@@ -335,16 +399,16 @@ a:hover {
                 display:flex;
                 justify-content: center;
                 a{
-                    background-color: $main-color-font;
-                    color: $black-color-font;
+                    background-color: $white-color;
+                    color: $dark-color;
                     font-size: 20pt;
                     font-weight: bold;
                     padding: 5px 20px;
                     border-radius: 8px;
                     margin: 0px 10px;
                     &:hover {
-                        background-color: $secondary-color-font;
-                        color: $main-color-font;
+                        background-color: $hover-link-color;
+                        color: $white-color;
                     }
                 }
             }
@@ -428,7 +492,7 @@ a:hover {
                     margin: 0 auto;
                     left: 0;
                     width: 42px;
-                    background: $main-color-font;
+                    background: $white-color;
                 }
                 
             }
@@ -505,7 +569,7 @@ a:hover {
             }
         }
 
-        @media screen and (max-width: $screen-size-phone) {
+        @media screen and (max-width: $screen-size-sm) {
             .project {
                 height: 140px;
 
@@ -516,55 +580,49 @@ a:hover {
         }
 
         .bg-paper-asteroid {
-            background: url('res/img/itchio_icon.jpg');
+            background: url('assets/img/itchio_icon.jpg');
             @include backgroundCover();
         }
 
         .bg-number-cruncher {
-            background: url('res/img/itchio_icon.jpg');
+            background: url('assets/img/itchio_icon.jpg');
             @include backgroundCover();
         }
 
         .bg-dagovt {
-            background: url('res/img/itchio_icon.jpg');
+            background: url('assets/img/itchio_icon.jpg');
             @include backgroundCover();
         }
 
         .bg-blackjack {
-            background: url('res/img/itchio_icon.jpg');
+            background: url('assets/img/itchio_icon.jpg');
             @include backgroundCover();
         }
 
         .bg-dpa {
-            background: url('res/img/itchio_icon.jpg');
+            background: url('assets/img/itchio_icon.jpg');
             @include backgroundCover();
         }
     }
-
-
-
-
-
-
 }
 
-@media screen and (max-width: $screen-size-phone) {
-    .right-content {
+@media screen and (max-width: $screen-size-md) {
+    .wrapper-right-side {
         margin-left: 0px;
     }
 }
 
 .about-me {
     #back-button {
-        background-color: $main-color-font;
+        background-color: $white-color;
 
         a {
-            color: $black-color-font;
+            color: $dark-color;
         }
     }
 
     .left-content {
-        background: url('res/img/david_triana_front_page.webp');
+        background: url('assets/img/david_triana_front_page.webp');
         background-position: right 70% center;
         background-size: cover;
         position: fixed;
@@ -587,7 +645,7 @@ a:hover {
 
     
 
-    @media screen and (max-width: $screen-size-phone) {
+    @media screen and (max-width: $screen-size-sm) {
         .right-content {
             padding: 20px 20px;
         }
