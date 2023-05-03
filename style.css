@@ -31,6 +31,11 @@ a:hover {
   text-decoration: none;
 }
 
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
 /* Fonts Defitions ––––––––––––––––––––––––––––––––––––––––––––– */
 @font-face {
   font-family: "Lato";
@@ -59,7 +64,7 @@ h3 {
 }
 
 h4 {
-  font-size: 32px;
+  font-size: 30px;
   line-height: 1;
   letter-spacing: -0.08rem;
   font-weight: regular;
@@ -78,9 +83,9 @@ h6 {
 }
 
 p {
-  margin-top: 0;
-  font-size: 22px;
-  line-height: 1.8;
+  font-size: 40px;
+  line-height: 1.6;
+  letter-spacing: 0;
 }
 
 /*
@@ -102,10 +107,10 @@ h6 {
     font-size: 35px;
   }
   h3 {
-    font-size: 30px;
+    font-size: 32px;
   }
   h4 {
-    font-size: 28px;
+    font-size: 30px;
   }
   h5 {
     font-size: 18px;
@@ -119,13 +124,13 @@ h6 {
     font-size: 40px;
   }
   h2 {
-    font-size: 25px;
+    font-size: 32px;
   }
   h3 {
-    font-size: 26px;
+    font-size: 28px;
   }
   h4 {
-    font-size: 22px;
+    font-size: 27px;
   }
   h5 {
     font-size: 18px;
@@ -142,10 +147,10 @@ h6 {
     font-size: 25px;
   }
   h3 {
-    font-size: 22px;
+    font-size: 27px;
   }
   h4 {
-    font-size: 20px;
+    font-size: 25px;
   }
   h5 {
     font-size: 18px;
@@ -162,10 +167,10 @@ h6 {
     font-size: 25px;
   }
   h3 {
-    font-size: 22px;
+    font-size: 26px;
   }
   h4 {
-    font-size: 20px;
+    font-size: 24px;
   }
   h5 {
     font-size: 18px;
@@ -182,10 +187,10 @@ h6 {
     font-size: 25px;
   }
   h3 {
-    font-size: 22px;
+    font-size: 26px;
   }
   h4 {
-    font-size: 20px;
+    font-size: 23px;
   }
   h5 {
     font-size: 18px;
@@ -311,16 +316,6 @@ h6 {
     display: none;
   }
 }
-@media screen and (max-width: 424px) {
-  .wrapper-left-side .card {
-    background-color: yellow;
-  }
-}
-@media screen and (max-width: 374px) {
-  .wrapper-left-side .card {
-    background-color: purple;
-  }
-}
 .wrapper-left-side .over {
   background: rgba(29, 29, 29, 0.4);
   top: 0;
@@ -388,44 +383,54 @@ h6 {
   opacity: 1;
   width: 100%;
 }
-.wrapper-right-side #back-button {
-  position: relative;
-  text-align: left;
-  top: 10px;
-  left: 15px;
-  width: 150px;
-  padding-top: 12px;
-  padding-left: 25px;
-  padding-bottom: 0px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.wrapper-right-side .career_page .section-curriculum-links {
+  padding: 20px 0px;
+  background-color: #1C1C1C;
 }
-.wrapper-right-side #back-button:hover {
-  padding-left: 20px;
-  width: 135px;
+.wrapper-right-side .career_page .section-curriculum-links .buttons {
+  display: flex;
+  justify-content: center;
 }
-@media screen and (max-width: 424px) {
-  .wrapper-right-side #back-button {
-    padding-top: 8px;
-    width: 90px;
-    padding-left: 18px;
-  }
-  .wrapper-right-side #back-button p {
-    font-size: 12px;
-  }
-}
-.wrapper-right-side .career_content .title {
-  font-size: 25pt;
-  line-height: 0.8;
-  letter-spacing: -0.1rem;
+.wrapper-right-side .career_page .section-curriculum-links .buttons a {
+  background-color: #ffffff;
+  color: #3A3A3A;
+  border-radius: 8px;
+  width: 210px;
+  font-size: 28px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-curriculum-links .buttons a i {
+  padding-top: 8px;
+  padding-right: 10px;
+}
+.wrapper-right-side .career_page .section-curriculum-links .buttons a:hover {
+  background-color: #979ACC;
+  color: #ffffff;
+}
+@media screen and (max-width: 1023px) {
+  .wrapper-right-side .career_page .section-curriculum-links .buttons a {
+    font-size: 23px;
+    width: 180px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .wrapper-right-side .career_page .section-curriculum-links {
+    padding-bottom: 0px;
+  }
+}
+.wrapper-right-side .career_page .section-skills {
+  padding: 20px 50px;
+}
+.wrapper-right-side .career_page .section-skills .title {
   text-align: center;
   position: relative;
-  padding: 10px 0px;
   margin-bottom: 25px;
 }
-.wrapper-right-side .career_content .title:after {
+.wrapper-right-side .career_page .section-skills .title:after {
   position: absolute;
   content: "";
   height: 3px;
@@ -434,76 +439,326 @@ h6 {
   left: 0;
   right: 0;
   width: 42px;
-  background: #3A3A3A;
+  background: #ffffff;
 }
-.wrapper-right-side .career_content .section1 {
-  padding: 40px 5%;
-  background-color: #1C1C1C;
+.wrapper-right-side .career_page .section-skills .subtitle {
+  margin-bottom: 10px;
+  width: 80%;
+  margin: auto;
+  padding: 20px 0px;
 }
-.wrapper-right-side .career_content .section1 .buttons {
-  padding-bottom: 20px;
-  display: flex;
-  justify-content: center;
+.wrapper-right-side .career_page .section-skills table {
+  margin-left: 20px;
+  width: 80%;
+  max-width: 200px;
+  margin-left: 10%;
 }
-.wrapper-right-side .career_content .section1 .buttons a {
+.wrapper-right-side .career_page .section-skills table .icon-unity {
+  background: url("/assets/icon/bw/unity.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-unity:hover {
+  background: url("/assets/icon/color/unity.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-ai {
+  background: url("/assets/icon/bw/ai.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-ai:hover {
+  background: url("/assets/icon/color/ai.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-aph {
+  background: url("/assets/icon/bw/aph.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-aph:hover {
+  background: url("/assets/icon/color/aph.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-apr {
+  background: url("/assets/icon/bw/apr.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-apr:hover {
+  background: url("/assets/icon/color/apr.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-ae {
+  background: url("/assets/icon/bw/ae.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-ae:hover {
+  background: url("/assets/icon/color/ae.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-office {
+  background: url("/assets/icon/bw/office.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-office:hover {
+  background: url("/assets/icon/color/office.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-vsc {
+  background: url("/assets/icon/bw/vsc.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-vsc:hover {
+  background: url("/assets/icon/color/vsc.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-intellij {
+  background: url("/assets/icon/bw/intellij.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-intellij:hover {
+  background: url("/assets/icon/color/intellij.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-eclipse {
+  background: url("/assets/icon/bw/eclipse.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-eclipse:hover {
+  background: url("/assets/icon/color/eclipse.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-github {
+  background: url("/assets/icon/bw/github.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-github:hover {
+  background: url("/assets/icon/color/github.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-jira {
+  background: url("/assets/icon/bw/jira.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-jira:hover {
+  background: url("/assets/icon/color/jira.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-trello {
+  background: url("/assets/icon/bw/trello.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-trello:hover {
+  background: url("/assets/icon/color/trello.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-monday {
+  background: url("/assets/icon/bw/monday.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-monday:hover {
+  background: url("/assets/icon/color/monday.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-pabbly {
+  background: url("/assets/icon/bw/pabbly.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-pabbly:hover {
+  background: url("/assets/icon/color/pabbly.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-cs {
+  background: url("/assets/icon/bw/cs.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-cs:hover {
+  background: url("/assets/icon/color/cs.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-cpp {
+  background: url("/assets/icon/bw/cpp.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-cpp:hover {
+  background: url("/assets/icon/color/cpp.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-java {
+  background: url("/assets/icon/bw/java.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-java:hover {
+  background: url("/assets/icon/color/java.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-python {
+  background: url("/assets/icon/bw/python.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-python:hover {
+  background: url("/assets/icon/color/python.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-swift {
+  background: url("/assets/icon/bw/swift.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-swift:hover {
+  background: url("/assets/icon/color/swift.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-lua {
+  background: url("/assets/icon/bw/lua.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-lua:hover {
+  background: url("/assets/icon/color/lua.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-html {
+  background: url("/assets/icon/bw/html.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-html:hover {
+  background: url("/assets/icon/color/html.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-css {
+  background: url("/assets/icon/bw/css.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-css:hover {
+  background: url("/assets/icon/color/css.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-sass {
+  background: url("/assets/icon/bw/sass.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-sass:hover {
+  background: url("/assets/icon/color/sass.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-js {
+  background: url("/assets/icon/bw/js.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-js:hover {
+  background: url("/assets/icon/color/js.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-xml {
+  background: url("/assets/icon/bw/xml.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-xml:hover {
+  background: url("/assets/icon/color/xml.png");
+}
+.wrapper-right-side .career_page .section-skills table .icon-json {
+  background: url("/assets/icon/bw/json.png");
+  width: 50px;
+  height: 50px;
+  transition: 0.4s;
+}
+.wrapper-right-side .career_page .section-skills table .icon-json:hover {
+  background: url("/assets/icon/color/json.png");
+}
+.wrapper-right-side .career_page .section-skills ul {
+  font-size: 20px;
+  width: 90%;
+  margin: auto;
+  list-style-type: none;
+}
+.wrapper-right-side .career_page .section-skills ul li {
+  text-indent: -13px;
+}
+.wrapper-right-side .career_page .section-skills ul li:before {
+  content: "-  ";
+}
+@media screen and (max-width: 1023px) {
+  .wrapper-right-side .career_page .section-skills ul {
+    width: 90%;
+  }
+  .wrapper-right-side .career_page .section-skills table {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .wrapper-right-side .career_page .section-skills {
+    padding: 20px 10px;
+  }
+}
+.wrapper-right-side .career_page .section-education {
+  padding: 40px 15%;
   background-color: #ffffff;
   color: #3A3A3A;
-  font-size: 20pt;
-  font-weight: bold;
-  padding: 5px 20px;
-  border-radius: 8px;
-  margin: 0px 10px;
 }
-.wrapper-right-side .career_content .section1 .buttons a:hover {
-  background-color: #979ACC;
-  color: #ffffff;
+.wrapper-right-side .career_page .section-education .title {
+  text-align: center;
+  position: relative;
+  color: #99CC83;
+  margin-bottom: 25px;
 }
-.wrapper-right-side .career_content .section1 .subtitle {
-  font-size: 25pt;
-  line-height: 1.5;
-  letter-spacing: -0.1rem;
-  font-weight: bold;
-  margin-bottom: 10px;
+.wrapper-right-side .career_page .section-education .title:after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  bottom: -10px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 42px;
+  background: #99CC83;
 }
-.wrapper-right-side .career_content .section1 table {
-  margin-left: 20px;
-}
-.wrapper-right-side .career_content .section1 table td {
-  padding: 3px;
-}
-.wrapper-right-side .career_content .section1 ul {
-  font-size: 17pt;
-  line-height: 1.2;
-  font-weight: regular;
-}
-.wrapper-right-side .career_content .section2 {
-  padding: 40px 15%;
-}
-.wrapper-right-side .career_content .section2 .card {
+.wrapper-right-side .career_page .section-education .card {
   border: transparent;
   background-color: transparent;
 }
-.wrapper-right-side .career_content .section2 .card .name {
+.wrapper-right-side .career_page .section-education .card .name {
   font-size: 22pt;
   line-height: 1.2;
   font-weight: bold;
 }
-.wrapper-right-side .career_content .section2 .card .institution {
+.wrapper-right-side .career_page .section-education .card .institution {
   font-size: 17pt;
   line-height: 1.2;
   font-weight: regular;
 }
-.wrapper-right-side .career_content .section2 .card .location, .wrapper-right-side .career_content .section2 .card .year {
+.wrapper-right-side .career_page .section-education .card .location, .wrapper-right-side .career_page .section-education .card .year {
   font-size: 14pt;
   line-height: 1.2;
   font-weight: bold;
 }
-.wrapper-right-side .career_content .section2 .card .description {
+.wrapper-right-side .career_page .section-education .card .description {
   font-size: 14pt;
   line-height: 1.2;
   font-weight: regular;
 }
-.wrapper-right-side .career_content .section2 .card .description li {
+.wrapper-right-side .career_page .section-education .card .description li {
   padding-top: 10px;
 }
 .wrapper-right-side .about_content {
@@ -547,90 +802,6 @@ h6 {
   text-align: justify;
   text-justify: inter-word;
 }
-.wrapper-right-side .projects .spacing {
-  background-clip: padding-box;
-  border: 5px solid transparent;
-}
-.wrapper-right-side .projects .project {
-  position: relative;
-  height: 350px;
-  width: 100%;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-}
-.wrapper-right-side .projects .project .bg {
-  background-color: rgba(29, 29, 29, 0);
-  color: rgba(255, 255, 255, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  transition: 0.3s ease-in-out;
-}
-.wrapper-right-side .projects .project .bg:hover {
-  background-color: rgba(29, 29, 29, 0.4);
-  color: rgb(255, 255, 255);
-}
-.wrapper-right-side .projects .project .name {
-  margin-top: 10px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.wrapper-right-side .projects .project:hover {
-  transform: scale(1.2);
-}
-@media screen and (max-width: none) {
-  .wrapper-right-side .projects .project {
-    height: 300px;
-  }
-}
-@media screen and (max-width: 1023px) {
-  .wrapper-right-side .projects .project {
-    height: 230px;
-  }
-}
-@media screen and (max-width: 424px) {
-  .wrapper-right-side .projects .project {
-    height: 140px;
-  }
-  .wrapper-right-side .projects .project .bg {
-    display: none;
-  }
-}
-.wrapper-right-side .projects .bg-paper-asteroid {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.wrapper-right-side .projects .bg-number-cruncher {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.wrapper-right-side .projects .bg-dagovt {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.wrapper-right-side .projects .bg-blackjack {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.wrapper-right-side .projects .bg-dpa {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 
 @media screen and (max-width: 767px) {
   .wrapper-right-side {
@@ -670,4 +841,117 @@ h6 {
 }
 .about-me p {
   text-align: justify;
+}
+
+#back-button {
+  position: relative;
+  text-align: left;
+  top: 10px;
+  left: 15px;
+  width: 150px;
+  padding-top: 12px;
+  padding-left: 25px;
+  padding-bottom: 0px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+#back-button:hover {
+  padding-left: 20px;
+  width: 135px;
+}
+
+@media screen and (max-width: 424px) {
+  #back-button {
+    padding-top: 8px;
+    width: 90px;
+    padding-left: 18px;
+  }
+  #back-button p {
+    font-size: 12px;
+  }
+}
+.projects .spacing {
+  background-clip: padding-box;
+  border: 5px solid transparent;
+}
+.projects .project {
+  position: relative;
+  height: 350px;
+  width: 100%;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.projects .project .bg {
+  background-color: rgba(29, 29, 29, 0);
+  color: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: 0.3s ease-in-out;
+}
+.projects .project .bg:hover {
+  background-color: rgba(29, 29, 29, 0.4);
+  color: rgb(255, 255, 255);
+}
+.projects .project .name {
+  margin-top: 10px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.projects .project:hover {
+  transform: scale(1.2);
+}
+@media screen and (max-width: none) {
+  .projects .project {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .projects .project {
+    height: 230px;
+  }
+}
+@media screen and (max-width: 424px) {
+  .projects .project {
+    height: 140px;
+  }
+  .projects .project .bg {
+    display: none;
+  }
+}
+.projects .bg-paper-asteroid {
+  background: url("assets/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.projects .bg-number-cruncher {
+  background: url("assets/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.projects .bg-dagovt {
+  background: url("assets/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.projects .bg-blackjack {
+  background: url("assets/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.projects .bg-dpa {
+  background: url("assets/img/itchio_icon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=style.css.map */

@@ -5,7 +5,8 @@
 /* Variables ––––––––––––––––––––––––––––––––––––––––––––––––––– */
 $white-color: #ffffff;
 $dark-color: #3A3A3A;
-$black-color: #242424;
+$dark2-color: #242424;
+$black-color: #1C1C1C;
 $secondary-color: #99CC83;
 $hover-link-color: #979ACC;
 
@@ -46,6 +47,11 @@ a {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.centered{
+    display: flex;
+    justify-content: center;
+    
+}
 
 /* Fonts Defitions ––––––––––––––––––––––––––––––––––––––––––––– */
 @font-face {
@@ -73,7 +79,7 @@ h3 {
     font-weight: regular;
 }
 h4 {
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1;
     letter-spacing: -.08rem;
     font-weight: regular;
@@ -89,9 +95,9 @@ h6 {
     letter-spacing: 0;
 }
 p {
-    margin-top: 0;
-    font-size: 22px;
-    line-height: 1.8;
+    font-size: 40px;
+    line-height: 1.6;
+    letter-spacing: 0;
 }
 
 /*
@@ -109,40 +115,40 @@ h6 {
 @media screen and (max-width: $screen-size-xl) {
     h1{ font-size: 45px;}
     h2{ font-size: 35px;}
-    h3{ font-size: 30px;}
-    h4{ font-size: 28px;}
+    h3{ font-size: 32px;}
+    h4{ font-size: 30px;}
     h5{ font-size: 18px;}
     h6{ font-size: 16px;}
 }
 @media screen and (max-width: $screen-size-lg) {  
     h1{ font-size: 40px;}
-    h2{ font-size: 25px;}
-    h3{ font-size: 26px;}
-    h4{ font-size: 22px;}
+    h2{ font-size: 32px;}
+    h3{ font-size: 28px;}
+    h4{ font-size: 27px;}
     h5{ font-size: 18px;}
     h6{ font-size: 16px;}
 }
 @media screen and (max-width: $screen-size-md) {
     h1{ font-size: 30px;}
     h2{ font-size: 25px;}
-    h3{ font-size: 22px;}
-    h4{ font-size: 20px;}
+    h3{ font-size: 27px;}
+    h4{ font-size: 25px;}
     h5{ font-size: 18px;}
     h6{ font-size: 16px;}
 }
 @media screen and (max-width: $screen-size-sm) { 
     h1{ font-size: 30px;}
     h2{ font-size: 25px;}
-    h3{ font-size: 22px;}
-    h4{ font-size: 20px;}
+    h3{ font-size: 26px;}
+    h4{ font-size: 24px;}
     h5{ font-size: 18px;}
     h6{ font-size: 16px;}
 }
 @media screen and (max-width: $screen-size-xs) { 
     h1{ font-size: 30px;}
     h2{ font-size: 25px;}
-    h3{ font-size: 22px;}
-    h4{ font-size: 20px;}
+    h3{ font-size: 26px;}
+    h4{ font-size: 23px;}
     h5{ font-size: 18px;}
     h6{ font-size: 16px;}
 }
@@ -251,12 +257,6 @@ h6 {
     @media screen and (max-width: $screen-size-md) {
         .card{ display: none;}
     }
-    @media screen and (max-width: $screen-size-sm) { 
-        .card{ background-color: yellow;}
-    }
-    @media screen and (max-width: $screen-size-xs) { 
-        .card{ background-color: purple;}
-    }
 
     .over {
         background: rgb(29, 29, 29, 0.4);
@@ -281,7 +281,7 @@ h6 {
     transition: 0.4s;
 
     nav {
-        background-color: $black-color;
+        background-color: $dark2-color;
         padding: 20px 30px;
         display: flex;
         justify-content: center;
@@ -330,44 +330,8 @@ h6 {
         } 
     }
 
-   
-
-
-    #back-button {
-        position: relative;
-        text-align: left;
-        top: 10px;
-        left: 15px;
-        width: 150px;
-        padding-top: 12px;
-        padding-left: 25px;
-        padding-bottom: 0px;
-        border-radius: 20px;
-        //background-color: $black-color-font;
-        cursor: pointer;
-        //color: $main-color-font;
-        transition: all 0.2s ease;
-        &:hover {
-            padding-left: 20px;
-            width: 135px;
-        }
-    }
-
-    @media screen and (max-width: $screen-size-sm) {
-        #back-button {
-            padding-top: 8px;
-            width: 90px;
-            padding-left: 18px;
-
-            p {
-                font-size: 12px;
-            }
-        }
-    }
-
-    .career_content{
-        
-        @mixin underline {
+    .career_page{
+        @mixin underline($color) {
             position: absolute;
             content: '';
             height: 3px;
@@ -376,63 +340,148 @@ h6 {
             left: 0;
             right: 0;
             width: 42px;
-            background: $dark-color;
+            background: $color;
         }
 
-        .title{
-            font-size: 25pt;
-            line-height: 0.8;
-            letter-spacing: -.1rem;
-            font-weight: bold;
-            text-align: center;
-            position: relative;
-            padding: 10px 0px;
-            margin-bottom: 25px;
-            &:after { @include underline();}
-        }
-        .section1{
-            padding: 40px 5%;
-            background-color: #1C1C1C;
+        .section-curriculum-links{
+            padding: 20px 0px;
+            background-color: $black-color;
 
             .buttons{
-                padding-bottom: 20px;
                 display:flex;
                 justify-content: center;
                 a{
                     background-color: $white-color;
                     color: $dark-color;
-                    font-size: 20pt;
-                    font-weight: bold;
-                    padding: 5px 20px;
                     border-radius: 8px;
-                    margin: 0px 10px;
+                    width: 210px;
+
+                    font-size: 28px;
+                    font-weight: bold;
+
+                    display: flex;
+                    justify-content: center;
+
+                    transition: 0.4s;
+                    i{
+                        padding-top: 8px;
+                        padding-right: 10px;
+                    }
                     &:hover {
                         background-color: $hover-link-color;
                         color: $white-color;
                     }
                 }
-            }
-            .subtitle{
-                font-size: 25pt;
-                line-height: 1.5;
-                letter-spacing: -.1rem;
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-            table{
-                margin-left: 20px;
-                td{
-                    padding: 3px;
+                @media screen and (max-width: $screen-size-lg) {  
+                    a{ 
+                        font-size: 23px;
+                        width: 180px;
+                        margin-bottom: 20px;
+                    }
                 }
             }
+        }
+        @media screen and (max-width: $screen-size-lg) {  
+            .section-curriculum-links{ padding-bottom: 0px;}
+        }
+
+        .section-skills{
+            padding: 20px 50px;
+            .title{
+                text-align: center;
+                position: relative;
+                margin-bottom: 25px;
+                &:after { @include underline($white-color);}
+            }
+
+            .subtitle{
+                margin-bottom: 10px;
+                width: 80%;
+                margin: auto;
+                padding: 20px 0px;
+            }
+
+            table{
+                margin-left: 20px;
+                width: 80%;
+                max-width: 200px;
+                margin-left: 10%;
+
+                @mixin skill_icons($path) {
+                    background: url('/assets/icon/bw/'+$path);
+                    width: 50px;
+                    height: 50px;
+                    transition: 0.4s;
+                    &:hover{
+                        background: url('/assets/icon/color/'+$path);
+                    }
+                }
+
+                .icon-unity{ @include skill_icons('unity.png');}
+                .icon-ai{ @include skill_icons('ai.png');}
+                .icon-aph{ @include skill_icons('aph.png');}
+                .icon-apr{ @include skill_icons('apr.png');}
+                .icon-ae{ @include skill_icons('ae.png');}
+                .icon-office{ @include skill_icons('office.png');}
+                .icon-vsc{ @include skill_icons('vsc.png');}
+                .icon-intellij{ @include skill_icons('intellij.png');}
+                .icon-eclipse{ @include skill_icons('eclipse.png');}
+                .icon-github{ @include skill_icons('github.png');}
+                .icon-jira{ @include skill_icons('jira.png');}
+                .icon-trello{ @include skill_icons('trello.png');}
+                .icon-monday{ @include skill_icons('monday.png');}
+                .icon-pabbly{ @include skill_icons('pabbly.png');}
+                .icon-cs{ @include skill_icons('cs.png');}
+                .icon-cpp{ @include skill_icons('cpp.png');}
+                .icon-java{ @include skill_icons('java.png');}
+                .icon-python{ @include skill_icons('python.png');}
+                .icon-swift{ @include skill_icons('swift.png');}
+                .icon-lua{ @include skill_icons('lua.png');}
+                .icon-html{ @include skill_icons('html.png');}
+                .icon-css{ @include skill_icons('css.png');}
+                .icon-sass{ @include skill_icons('sass.png');}
+                .icon-js{ @include skill_icons('js.png');}
+                .icon-xml{ @include skill_icons('xml.png');}
+                .icon-json{ @include skill_icons('json.png');}
+                //.icon-kotlin{ @include skill_icons('unity.png');}
+                //.icon-notion{ @include skill_icons('unity.png');}
+            }
+
             ul{
-                font-size: 17pt;
-                line-height: 1.2;
-                font-weight: regular;
+                font-size: 20px;
+                width: 90%;
+                margin: auto;
+                list-style-type: none;
+                li{
+                    text-indent: -13px;
+                    &:before{
+                        content: "-  ";
+                    }
+                }
+            }
+
+            @media screen and (max-width: $screen-size-lg) {  
+                ul{ width: 90%;}
+                table{ width: 95%;}
             }
         }
-        .section2{
+        @media screen and (max-width: $screen-size-lg) {  
+            .section-skills{ padding: 20px 10px;}
+        }
+
+        
+    
+        .section-education{
             padding: 40px 15%;
+            background-color: $white-color;
+            color: $dark-color;
+            .title{
+                text-align: center;
+                position: relative;
+                color: $secondary-color;
+                margin-bottom: 25px;
+                &:after { @include underline($secondary-color);}
+            }
             .card{
                 border: transparent;
                 background-color: transparent;
@@ -514,96 +563,7 @@ h6 {
         }
     }
 
-    .projects {
-        .spacing {
-            background-clip: padding-box;
-            border: 5px solid transparent;
-        }
-
-        .project {
-            position: relative;
-            height: 350px;
-            width: 100%;
-            transition: .3s ease-in-out;
-            cursor: pointer;
-
-            .bg {
-                background-color: rgb(29, 29, 29, 0);
-                color: rgb(255, 255, 255, 0);
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                transition: .3s ease-in-out;
-
-                &:hover {
-                    background-color: rgb(29, 29, 29, 0.4);
-                    color: rgb(255, 255, 255, 1);
-                }
-            }
-
-            .name {
-                margin-top: 10px;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-            }
-
-            &:hover {
-                transform: scale(1.2);
-            }
-        }
-
-        @media screen and (max-width: $screen-size-xxl) {
-            .project {
-                height: 300px;
-            }
-        }
-
-        @media screen and (max-width: $screen-size-lg) {
-            .project {
-                height: 230px;
-            }
-        }
-
-        @media screen and (max-width: $screen-size-sm) {
-            .project {
-                height: 140px;
-
-                .bg {
-                    display: none;
-                }
-            }
-        }
-
-        .bg-paper-asteroid {
-            background: url('assets/img/itchio_icon.jpg');
-            @include backgroundCover();
-        }
-
-        .bg-number-cruncher {
-            background: url('assets/img/itchio_icon.jpg');
-            @include backgroundCover();
-        }
-
-        .bg-dagovt {
-            background: url('assets/img/itchio_icon.jpg');
-            @include backgroundCover();
-        }
-
-        .bg-blackjack {
-            background: url('assets/img/itchio_icon.jpg');
-            @include backgroundCover();
-        }
-
-        .bg-dpa {
-            background: url('assets/img/itchio_icon.jpg');
-            @include backgroundCover();
-        }
-    }
+    
 }
 
 @media screen and (max-width: $screen-size-md) {
@@ -653,5 +613,131 @@ h6 {
 
     p {
         text-align: justify;
+    }
+}
+
+
+
+#back-button {
+    position: relative;
+    text-align: left;
+    top: 10px;
+    left: 15px;
+    width: 150px;
+    padding-top: 12px;
+    padding-left: 25px;
+    padding-bottom: 0px;
+    border-radius: 20px;
+    //background-color: $black-color-font;
+    cursor: pointer;
+    //color: $main-color-font;
+    transition: all 0.2s ease;
+    &:hover {
+        padding-left: 20px;
+        width: 135px;
+    }
+}
+
+@media screen and (max-width: $screen-size-sm) {
+    #back-button {
+        padding-top: 8px;
+        width: 90px;
+        padding-left: 18px;
+
+        p {
+            font-size: 12px;
+        }
+    }
+}
+
+
+.projects {
+    .spacing {
+        background-clip: padding-box;
+        border: 5px solid transparent;
+    }
+
+    .project {
+        position: relative;
+        height: 350px;
+        width: 100%;
+        transition: .3s ease-in-out;
+        cursor: pointer;
+
+        .bg {
+            background-color: rgb(29, 29, 29, 0);
+            color: rgb(255, 255, 255, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            transition: .3s ease-in-out;
+
+            &:hover {
+                background-color: rgb(29, 29, 29, 0.4);
+                color: rgb(255, 255, 255, 1);
+            }
+        }
+
+        .name {
+            margin-top: 10px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    @media screen and (max-width: $screen-size-xxl) {
+        .project {
+            height: 300px;
+        }
+    }
+
+    @media screen and (max-width: $screen-size-lg) {
+        .project {
+            height: 230px;
+        }
+    }
+
+    @media screen and (max-width: $screen-size-sm) {
+        .project {
+            height: 140px;
+
+            .bg {
+                display: none;
+            }
+        }
+    }
+
+    .bg-paper-asteroid {
+        background: url('assets/img/itchio_icon.jpg');
+        @include backgroundCover();
+    }
+
+    .bg-number-cruncher {
+        background: url('assets/img/itchio_icon.jpg');
+        @include backgroundCover();
+    }
+
+    .bg-dagovt {
+        background: url('assets/img/itchio_icon.jpg');
+        @include backgroundCover();
+    }
+
+    .bg-blackjack {
+        background: url('assets/img/itchio_icon.jpg');
+        @include backgroundCover();
+    }
+
+    .bg-dpa {
+        background: url('assets/img/itchio_icon.jpg');
+        @include backgroundCover();
     }
 }
