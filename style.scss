@@ -626,11 +626,14 @@ h6 {
                     font-size: 16px;
                     line-height: 1.2;
                     font-weight: regular;
+                    padding-top: 10px;
                 }
                 @media screen and (max-width: $screen-size-lg) {  
-                    .position, .company, .location-time{ text-align: center;}
+                    .position, .company, .location-time{text-align: center;}
                     .experience_paper, .experience_elmedio, .experience_davidtriana, .experience_asecum{ 
                         background-position: center;
+                        min-height: 200px;
+                        margin-top: 30px;
                     }
                 }
             }

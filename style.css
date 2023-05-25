@@ -903,6 +903,7 @@ h6 {
   font-size: 16px;
   line-height: 1.2;
   font-weight: regular;
+  padding-top: 10px;
 }
 @media screen and (max-width: 1023px) {
   .wrapper-right-side .career_page .section-work-experience .card .position, .wrapper-right-side .career_page .section-work-experience .card .company, .wrapper-right-side .career_page .section-work-experience .card .location-time {
@@ -910,6 +911,8 @@ h6 {
   }
   .wrapper-right-side .career_page .section-work-experience .card .experience_paper, .wrapper-right-side .career_page .section-work-experience .card .experience_elmedio, .wrapper-right-side .career_page .section-work-experience .card .experience_davidtriana, .wrapper-right-side .career_page .section-work-experience .card .experience_asecum {
     background-position: center;
+    min-height: 200px;
+    margin-top: 30px;
   }
 }
 .wrapper-right-side .about_content {

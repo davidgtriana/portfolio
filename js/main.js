@@ -24,5 +24,5 @@ window.onload = function () {
   
 };
 
-setTimeout(() => document.getElementById("end_page").scrollIntoView(), 500);
+//setTimeout(() => document.getElementById("end_page").scrollIntoView(), 500);
 
