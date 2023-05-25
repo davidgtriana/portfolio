@@ -50,7 +50,6 @@ a {
 .centered{
     display: flex;
     justify-content: center;
-    
 }
 
 /* Fonts Defitions ––––––––––––––––––––––––––––––––––––––––––––– */
@@ -85,7 +84,7 @@ h4 {
     font-weight: regular;
 }
 h5 {
-    font-size: 50px;
+    font-size: 23px;
     line-height: 1.2;
     letter-spacing: -.05rem;
 }
@@ -116,8 +115,8 @@ h6 {
     h1{ font-size: 45px;}
     h2{ font-size: 35px;}
     h3{ font-size: 32px;}
-    h4{ font-size: 30px;}
-    h5{ font-size: 18px;}
+    h4{ font-size: 29px;}
+    h5{ font-size: 22px;}
     h6{ font-size: 16px;}
 }
 @media screen and (max-width: $screen-size-lg) {  
@@ -125,7 +124,7 @@ h6 {
     h2{ font-size: 32px;}
     h3{ font-size: 28px;}
     h4{ font-size: 27px;}
-    h5{ font-size: 18px;}
+    h5{ font-size: 21px;}
     h6{ font-size: 16px;}
 }
 @media screen and (max-width: $screen-size-md) {
@@ -133,7 +132,7 @@ h6 {
     h2{ font-size: 25px;}
     h3{ font-size: 27px;}
     h4{ font-size: 25px;}
-    h5{ font-size: 18px;}
+    h5{ font-size: 20px;}
     h6{ font-size: 16px;}
 }
 @media screen and (max-width: $screen-size-sm) { 
@@ -141,7 +140,7 @@ h6 {
     h2{ font-size: 25px;}
     h3{ font-size: 26px;}
     h4{ font-size: 24px;}
-    h5{ font-size: 18px;}
+    h5{ font-size: 19px;}
     h6{ font-size: 16px;}
 }
 @media screen and (max-width: $screen-size-xs) { 
@@ -176,22 +175,22 @@ h6 {
         height: 100px;
         padding: 20px;
         @include backgroundCover();
-        background-color: red;
+        //background-color: red;
     }
     @media screen and (max-width: $screen-size-xl) {
-        .logo{ background-color: pink;}
+        //.logo{ background-color: pink;}
     }
     @media screen and (max-width: $screen-size-lg) {  
-        .logo{ background-color: blue;}
+        //.logo{ background-color: blue;}
     }
     @media screen and (max-width: $screen-size-md) {
-        .logo{ background-color: green;}
+        //.logo{ background-color: green;}
     }
     @media screen and (max-width: $screen-size-sm) { 
-        .logo{ background-color: yellow;}
+        //.logo{ background-color: yellow;}
     }
     @media screen and (max-width: $screen-size-xs) { 
-        .logo{ background-color: purple;}
+        //.logo{ background-color: purple;}
     }
     .card{
         border: transparent;
@@ -386,7 +385,7 @@ h6 {
         }
 
         .section-skills{
-            padding: 20px 50px;
+            padding: 60px 50px;
             .title{
                 text-align: center;
                 position: relative;
@@ -466,7 +465,7 @@ h6 {
             }
         }
         @media screen and (max-width: $screen-size-lg) {  
-            .section-skills{ padding: 20px 10px;}
+            .section-skills{ padding: 50px 10px;}
         }
 
         
@@ -485,15 +484,23 @@ h6 {
             .card{
                 border: transparent;
                 background-color: transparent;
-                .name{
-                    font-size: 22pt;
-                    line-height: 1.2;
-                    font-weight: bold;
+                @mixin academy_icons($path) {
+                    background: url('/assets/img/'+$path);
+                    min-height : 120px;
+                    min-width : 100%;
+                    background-size:auto 100%;
+                    background-repeat:no-repeat;
                     
+                    overflow-y: hidden;
+                    overflow-x: hidden;
+                }
+                .academy_nbcc{ @include academy_icons('academy-nbcc.png');}
+                .academy_umng{ @include academy_icons('academy_umng.png');}
+                
+                .name{
+                    font-weight: bold;
                 }
                 .institution{
-                    font-size: 17pt;
-                    line-height: 1.2;
                     font-weight: regular;
                 }
                 .location, .year{
@@ -509,11 +516,14 @@ h6 {
                         padding-top: 10px;
                     }
                 }
+                @media screen and (max-width: $screen-size-lg) {  
+                    .name, .institution, .location, .year{ text-align: center;}
+                    .academy_nbcc, .academy_umng{ 
+                        background-position: center;
+                    }
+                }
+        
             }
-        }
-
-        @media screen and (max-width: $screen-size-xxl) {
-
         }
     }
 

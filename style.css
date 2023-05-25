@@ -71,7 +71,7 @@ h4 {
 }
 
 h5 {
-  font-size: 50px;
+  font-size: 23px;
   line-height: 1.2;
   letter-spacing: -0.05rem;
 }
@@ -110,10 +110,10 @@ h6 {
     font-size: 32px;
   }
   h4 {
-    font-size: 30px;
+    font-size: 29px;
   }
   h5 {
-    font-size: 18px;
+    font-size: 22px;
   }
   h6 {
     font-size: 16px;
@@ -133,7 +133,7 @@ h6 {
     font-size: 27px;
   }
   h5 {
-    font-size: 18px;
+    font-size: 21px;
   }
   h6 {
     font-size: 16px;
@@ -153,7 +153,7 @@ h6 {
     font-size: 25px;
   }
   h5 {
-    font-size: 18px;
+    font-size: 20px;
   }
   h6 {
     font-size: 16px;
@@ -173,7 +173,7 @@ h6 {
     font-size: 24px;
   }
   h5 {
-    font-size: 18px;
+    font-size: 19px;
   }
   h6 {
     font-size: 16px;
@@ -223,32 +223,6 @@ h6 {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: red;
-}
-@media screen and (max-width: 1439px) {
-  .wrapper-left-side .logo {
-    background-color: pink;
-  }
-}
-@media screen and (max-width: 1023px) {
-  .wrapper-left-side .logo {
-    background-color: blue;
-  }
-}
-@media screen and (max-width: 767px) {
-  .wrapper-left-side .logo {
-    background-color: green;
-  }
-}
-@media screen and (max-width: 424px) {
-  .wrapper-left-side .logo {
-    background-color: yellow;
-  }
-}
-@media screen and (max-width: 374px) {
-  .wrapper-left-side .logo {
-    background-color: purple;
-  }
 }
 .wrapper-left-side .card {
   border: transparent;
@@ -423,7 +397,7 @@ h6 {
   }
 }
 .wrapper-right-side .career_page .section-skills {
-  padding: 20px 50px;
+  padding: 60px 50px;
 }
 .wrapper-right-side .career_page .section-skills .title {
   text-align: center;
@@ -709,7 +683,7 @@ h6 {
 }
 @media screen and (max-width: 1023px) {
   .wrapper-right-side .career_page .section-skills {
-    padding: 20px 10px;
+    padding: 50px 10px;
   }
 }
 .wrapper-right-side .career_page .section-education {
@@ -738,14 +712,28 @@ h6 {
   border: transparent;
   background-color: transparent;
 }
+.wrapper-right-side .career_page .section-education .card .academy_nbcc {
+  background: url("/assets/img/academy-nbcc.png");
+  min-height: 120px;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.wrapper-right-side .career_page .section-education .card .academy_umng {
+  background: url("/assets/img/academy_umng.png");
+  min-height: 120px;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 .wrapper-right-side .career_page .section-education .card .name {
-  font-size: 22pt;
-  line-height: 1.2;
   font-weight: bold;
 }
 .wrapper-right-side .career_page .section-education .card .institution {
-  font-size: 17pt;
-  line-height: 1.2;
   font-weight: regular;
 }
 .wrapper-right-side .career_page .section-education .card .location, .wrapper-right-side .career_page .section-education .card .year {
@@ -760,6 +748,14 @@ h6 {
 }
 .wrapper-right-side .career_page .section-education .card .description li {
   padding-top: 10px;
+}
+@media screen and (max-width: 1023px) {
+  .wrapper-right-side .career_page .section-education .card .name, .wrapper-right-side .career_page .section-education .card .institution, .wrapper-right-side .career_page .section-education .card .location, .wrapper-right-side .career_page .section-education .card .year {
+    text-align: center;
+  }
+  .wrapper-right-side .career_page .section-education .card .academy_nbcc, .wrapper-right-side .career_page .section-education .card .academy_umng {
+    background-position: center;
+  }
 }
 .wrapper-right-side .about_content {
   padding: 40px 20%;
