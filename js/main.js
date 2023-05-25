@@ -21,4 +21,8 @@ function loadContent(file) {
 
 window.onload = function () {
   loadContent('career');
+  
 };
+
+setTimeout(() => document.getElementById("end_page").scrollIntoView(), 500);
+
