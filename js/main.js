@@ -20,9 +20,9 @@ function loadContent(file) {
 }
 
 window.onload = function () {
-  loadContent('career');
-  
+  loadContent('projects');
 };
 
+// Use if I'm editing the bottom of the page
 //setTimeout(() => document.getElementById("end_page").scrollIntoView(), 500);
 

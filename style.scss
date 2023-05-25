@@ -680,18 +680,13 @@ h6 {
         }
     }
 
-    .about_content{
+    .about_page{
         padding: 40px 20%;
-        .section1{
-            
+        .section_introduction{
             .name{
-                font-size: 30pt;
-                line-height: 1.2;
                 font-weight: bold;
             }
             .position{
-                font-size: 21pt;
-                line-height: 1.2;
                 font-weight: lighter;
                 position: relative;
                 padding-bottom: 10x;
@@ -709,17 +704,14 @@ h6 {
                 
             }
             .description{
-                padding-top: 10px;
-                font-size: 15px;
-                line-height: 1.2;
-                font-weight: regular;
+                font-size: 19px;
+                line-height: 26px;
                 text-align: justify;
                 text-justify: inter-word;
             }
         }
-        .section2{
-            font-size: 19pt;
-            line-height: 1.2;
+        .section_story{
+            font-size: 25px;
             font-weight: regular;
             text-align: justify;
             text-justify: inter-word;

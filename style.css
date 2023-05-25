@@ -1007,23 +1007,19 @@ h6 {
     margin-top: 20px;
   }
 }
-.wrapper-right-side .about_content {
+.wrapper-right-side .about_page {
   padding: 40px 20%;
 }
-.wrapper-right-side .about_content .section1 .name {
-  font-size: 30pt;
-  line-height: 1.2;
+.wrapper-right-side .about_page .section_introduction .name {
   font-weight: bold;
 }
-.wrapper-right-side .about_content .section1 .position {
-  font-size: 21pt;
-  line-height: 1.2;
+.wrapper-right-side .about_page .section_introduction .position {
   font-weight: lighter;
   position: relative;
   padding-bottom: 10x;
   margin-bottom: 18px;
 }
-.wrapper-right-side .about_content .section1 .position:after {
+.wrapper-right-side .about_page .section_introduction .position:after {
   position: absolute;
   content: "";
   height: 3px;
@@ -1033,17 +1029,14 @@ h6 {
   width: 42px;
   background: #ffffff;
 }
-.wrapper-right-side .about_content .section1 .description {
-  padding-top: 10px;
-  font-size: 15px;
-  line-height: 1.2;
-  font-weight: regular;
+.wrapper-right-side .about_page .section_introduction .description {
+  font-size: 19px;
+  line-height: 26px;
   text-align: justify;
   text-justify: inter-word;
 }
-.wrapper-right-side .about_content .section2 {
-  font-size: 19pt;
-  line-height: 1.2;
+.wrapper-right-side .about_page .section_story {
+  font-size: 25px;
   font-weight: regular;
   text-align: justify;
   text-justify: inter-word;
