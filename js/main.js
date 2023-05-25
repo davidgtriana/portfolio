@@ -21,6 +21,7 @@ function loadContent(file) {
 
 window.onload = function () {
   loadContent('projects');
+  console.log("Hello world!");
 };
 
 // Use if I'm editing the bottom of the page
