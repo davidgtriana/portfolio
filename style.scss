@@ -639,6 +639,45 @@ h6 {
             }
         }
 
+        .section-other-jobs{
+            padding: 40px 15%;
+            background-color: $dark-color;
+            color: $white-color;
+            .title{
+                text-align: center;
+                position: relative;
+                margin-bottom: 25px;
+                font-weight: bold;
+                &:after { @include underline($white-color);}
+            }
+
+            @mixin small_experiences_icons($path) {
+                background: url('/assets/img/'+$path);
+                min-height : 80px;
+                min-width : 100%;
+                background-size:auto 100%;
+                background-repeat:no-repeat;
+                overflow-y: hidden;
+                overflow-x: hidden;
+                background-position: center;
+            }
+            .experience_cook{ @include small_experiences_icons('experience_cook.png');}
+            .experience_server{ @include small_experiences_icons('experience_server.png');}
+            .experience_uber_eats{ @include small_experiences_icons('experience_uber_eats.png');}
+            .experience_warehouse{ @include small_experiences_icons('experience_warehouse.png');}
+            .experience_tims{ @include small_experiences_icons('experience_tims.png');}
+            .experience_mcd{ @include small_experiences_icons('experience_mcd.png');}
+        }
+        @media screen and (max-width: $screen-size-lg) {  
+            .experience_cook,
+            .experience_server,
+            .experience_uber_eats,
+            .experience_warehouse,
+            .experience_tims,
+            .experience_mcd{ 
+                margin-top: 20px;
+            }
+        }
     }
 
     .about_content{

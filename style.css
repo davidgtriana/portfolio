@@ -915,6 +915,98 @@ h6 {
     margin-top: 30px;
   }
 }
+.wrapper-right-side .career_page .section-other-jobs {
+  padding: 40px 15%;
+  background-color: #3A3A3A;
+  color: #ffffff;
+}
+.wrapper-right-side .career_page .section-other-jobs .title {
+  text-align: center;
+  position: relative;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+.wrapper-right-side .career_page .section-other-jobs .title:after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  bottom: -10px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 42px;
+  background: #ffffff;
+}
+.wrapper-right-side .career_page .section-other-jobs .experience_cook {
+  background: url("/assets/img/experience_cook.png");
+  min-height: 80px;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-position: center;
+}
+.wrapper-right-side .career_page .section-other-jobs .experience_server {
+  background: url("/assets/img/experience_server.png");
+  min-height: 80px;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-position: center;
+}
+.wrapper-right-side .career_page .section-other-jobs .experience_uber_eats {
+  background: url("/assets/img/experience_uber_eats.png");
+  min-height: 80px;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-position: center;
+}
+.wrapper-right-side .career_page .section-other-jobs .experience_warehouse {
+  background: url("/assets/img/experience_warehouse.png");
+  min-height: 80px;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-position: center;
+}
+.wrapper-right-side .career_page .section-other-jobs .experience_tims {
+  background: url("/assets/img/experience_tims.png");
+  min-height: 80px;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-position: center;
+}
+.wrapper-right-side .career_page .section-other-jobs .experience_mcd {
+  background: url("/assets/img/experience_mcd.png");
+  min-height: 80px;
+  min-width: 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-position: center;
+}
+@media screen and (max-width: 1023px) {
+  .wrapper-right-side .career_page .experience_cook,
+  .wrapper-right-side .career_page .experience_server,
+  .wrapper-right-side .career_page .experience_uber_eats,
+  .wrapper-right-side .career_page .experience_warehouse,
+  .wrapper-right-side .career_page .experience_tims,
+  .wrapper-right-side .career_page .experience_mcd {
+    margin-top: 20px;
+  }
+}
 .wrapper-right-side .about_content {
   padding: 40px 20%;
 }
