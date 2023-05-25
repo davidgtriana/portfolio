@@ -1110,87 +1110,41 @@ h6 {
     font-size: 12px;
   }
 }
-.projects .spacing {
-  background-clip: padding-box;
-  border: 5px solid transparent;
+.project_page .section_introduction {
+  padding-top: 30px;
 }
-.projects .project {
-  position: relative;
-  height: 350px;
-  width: 100%;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-}
-.projects .project .bg {
-  background-color: rgba(29, 29, 29, 0);
-  color: rgba(255, 255, 255, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  transition: 0.3s ease-in-out;
-}
-.projects .project .bg:hover {
-  background-color: rgba(29, 29, 29, 0.4);
-  color: rgb(255, 255, 255);
-}
-.projects .project .name {
-  margin-top: 10px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.project_page .section_introduction .title {
   text-align: center;
+  position: relative;
+  margin-bottom: 25px;
+  font-weight: bold;
 }
-.projects .project:hover {
-  transform: scale(1.2);
+.project_page .section_introduction .title:after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  bottom: -10px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 42px;
+  background: #ffffff;
 }
-@media screen and (max-width: none) {
-  .projects .project {
-    height: 300px;
-  }
+.project_page .section_introduction .introduction {
+  text-align: center;
+  max-width: 800px;
+  width: 95%;
+  margin: 0 auto;
 }
-@media screen and (max-width: 1023px) {
-  .projects .project {
-    height: 230px;
-  }
+.project_page .section-projects {
+  max-width: 800px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 30px 0px;
 }
-@media screen and (max-width: 424px) {
-  .projects .project {
-    height: 140px;
-  }
-  .projects .project .bg {
-    display: none;
-  }
+.project_page .section-projects .project .image {
+  padding: 5px 20px;
 }
-.projects .bg-paper-asteroid {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.projects .bg-number-cruncher {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.projects .bg-dagovt {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.projects .bg-blackjack {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.projects .bg-dpa {
-  background: url("assets/img/itchio_icon.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.project_page .section-projects .project .information {
+  padding: 5px 20px;
 }/*# sourceMappingURL=style.css.map */
