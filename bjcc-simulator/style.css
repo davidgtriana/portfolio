@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: lightseagreen;
+    color: black;
+}
+
+.card{
+    width: 60px;
+    height: 90px;
+    border-radius: 10px;
+    filter: drop-shadow(8px 8px 5px rgb(0,0,0,0.3));
+}
+
+#dealer-area {
+    background-color: lightgrey;
+    padding: 10px 10px;
+    height: 150px;
+}
+
+#dealer-area .value{
+    font-size: 30px;
+}
+
+#dealer-area .hand {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 10px;
+}
+
+#bet-boxes-area {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    padding-top: 200px;
+    padding-bottom: 30px;
+    justify-content: center;
+    gap: 50px;
+}
+
+.bet-box {
+    background-color: #2e8b57;
+    border-radius: 50px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.bet-box .hand{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bet-box .hand .card{
+    position: absolute;
+}
+
+.bet-box .hand .value{
+    background-color: white;
+    border: 2px solid burlywood;
+    margin-top: 10px;
+    width: 55px;
+    height: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.bet-box .hand .bet{
+    background-color: blueviolet;
+    position: relative;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.btn {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
