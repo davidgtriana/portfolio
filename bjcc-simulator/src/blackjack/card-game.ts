@@ -50,7 +50,6 @@ export class StackCard {
   }
 
   public shuffle (die:DiceRoller): void{
-    
     /* Fisher-Yates Modern Version */
     let last_index:number = this.cards.length-1;
     

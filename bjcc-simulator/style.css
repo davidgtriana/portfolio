@@ -1,28 +1,84 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: lightseagreen;
+    background-color: rgb(5, 99, 28);
     color: black;
+    margin: 0;
+    padding-top: 50px;
+}
+
+body::before {
+    content: "";
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 1;
 }
 
 .card{
     width: 60px;
-    height: 90px;
     border-radius: 10px;
-    filter: drop-shadow(8px 8px 5px rgb(0,0,0,0.3));
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+#shoe-preview-area{
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 5px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+}
+
+#shoe-preview-area .cards{
+    display: flex;
+    gap: 3px;
+}
+
+#shoe-preview-area .card{
+    width: 25px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: none;
 }
 
 #dealer-area {
-    background-color: lightgrey;
+    background: linear-gradient( to right,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 0.35) 40%,
+        rgba(0, 0, 0, 0.35) 60%,
+        rgba(0, 0, 0, 0) 80%);
+
     padding: 10px 10px;
     height: 150px;
+
+    width: 90%; /* Or any fixed width */
+    max-width: 1000px; /* Prevents it from getting too big */
+    margin: 0 auto; /* Centers horizontally */
 }
 
-#dealer-area .value{
+#dealer-area .hand{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#dealer-area .hand .value{
     font-size: 30px;
+    color: white;
 }
 
-#dealer-area .hand {
+#dealer-area .hand .cards{
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
@@ -40,12 +96,18 @@ body {
 }
 
 .bet-box {
-    background-color: #2e8b57;
-    border-radius: 50px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    outline: 1px dashed rgba(255, 255, 255, 0.6);
+    outline-offset: 1px;
+    border-radius: 50%;
     width: 80px;
     height: 80px;
+    gap:-10px;
+
     position: relative;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: center;
 }
 
@@ -54,9 +116,30 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0px -10px;
 }
 
-.bet-box .hand .card{
+.bet-box .hand:nth-child(2){
+    transform: rotate(0deg) translateY(-20px);
+}
+.bet-box .hand:nth-child(3){
+    transform: rotate(0deg) translateY(-40px);
+}
+.bet-box .hand:nth-child(4){
+    transform: rotate(0deg) translateY(-80px);
+}
+
+.hand.current_turn{
+    animation: floatAnimation 1.5s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0px);}
+}
+
+.bet-box .hand .cards .card{
     position: absolute;
 }
 
@@ -65,9 +148,10 @@ body {
     border: 2px solid burlywood;
     margin-top: 10px;
     width: 55px;
-    height: 20px;
+    height: 18px;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .bet-box .hand .bet{
@@ -78,22 +162,46 @@ body {
     height: 30px;
     border-radius: 50%;
     margin-top: 5px;
-
+    
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: bold;
 }
 
+#buttons-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+}
 
 .btn {
-    width: 150px;
-    padding: 10px;
-    font-size: 16px;
+    color:white;
+    font-size: 12px;
     font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border: 4px rgb(211, 85, 53) solid;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    background-color: black;
+    border-radius: 50%;
+    
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    
+    text-overflow: ellipsis;
     cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(211, 85, 53);
 }
 
 .btn:disabled {

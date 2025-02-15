@@ -1,4 +1,3 @@
-import { Hand } from "./hand.js";
 export class BetBox {
     id;
     player;
@@ -7,7 +6,7 @@ export class BetBox {
         this.id = id;
     }
     placeBet(bet) {
-        this.hands.push(new Hand(bet, 1, this.id));
+        this.hands[0].placeBet(bet);
         this.player.stack -= bet;
     }
 }

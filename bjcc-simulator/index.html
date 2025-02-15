@@ -30,45 +30,79 @@
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
         <script src="https://kit.fontawesome.com/082c565d5c.js" crossorigin="anonymous"></script>
 
-        <!--TODO:
-                3. Game
-                    -- Programming Course Of play
-                    -- Erasing current display of item to update them properly
-                    -- button actions
-                    -- enable and disable buttons
-                    -- turns per player
-                    -- dealer's actions
-                    -- Pay and Take
-                4. Basic Strategy
-                5. Card Counting
-                6. Simulator
-        -------------------------- -->
         <title>Blackjack Game</title>
     </head>
     <body>
-        <audio id="deal-sound" src="./assets/sounds/dealing_card.ogg"></audio>
-        <h1>BlackJack</h1>
+        <div id="shoe-preview-area"></div>
+
+        <h1>BLACKJACK</h1>
     
-    <!-- Dealer Section -->
-    <div id="dealer-area">
-        <div class="value"></div>
-        <div class="hand"></div>
-    </div>
+        <!-- Dealer Section -->
+        <div id="dealer-area"></div>
 
-    <!-- Bet Boxes -->
-    <div id="bet-boxes-area"></div>
+        <!-- Bet Boxes -->
+        <div id="bet-boxes-area">
+            <div class="bet-box bet-box-1">
+                <div class="hand hand-1">
+                    <div class="value" style="visibility: visible;">12</div>
+                    <div class="bet" style="visibility: visible;">25</div>
+                    <div class="cards">
+                        <img class="card card-1" src="./assets/cards/6C.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 0px; top: -90px; position: absolute;">
+                        <img class="card card-2" src="./assets/cards/6S.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 35px; top: -120px; position: absolute;">
+                    </div>
+                </div>
+                <div class="hand hand-2">
+                    <div class="value" style="visibility: visible;">12</div>
+                    <div class="bet" style="visibility: visible;">25</div>
+                    <div class="cards">
+                        <img class="card card-1" src="./assets/cards/6C.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 0px; top: -90px; position: absolute;">
+                        <img class="card card-2" src="./assets/cards/6S.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 35px; top: -120px; position: absolute;">
+                    </div>
+                </div>
+                <div class="hand hand-3">
+                    <div class="value" style="visibility: visible;">12</div>
+                    <div class="bet" style="visibility: visible;">25</div>
+                    <div class="cards">
+                        <img class="card card-1" src="./assets/cards/6C.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 0px; top: -90px; position: absolute;">
+                        <img class="card card-2" src="./assets/cards/6S.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 35px; top: -120px; position: absolute;">
+                    </div>
+                </div>
+                <div class="hand hand-4 current_turn">
+                    <div class="value" style="visibility: visible;">12</div>
+                    <div class="bet" style="visibility: visible;">25</div>
+                    <div class="cards">
+                        <img class="card card-1" src="./assets/cards/6C.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 0px; top: -90px; position: absolute;">
+                        <img class="card card-2" src="./assets/cards/6S.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 35px; top: -120px; position: absolute;">
+                    </div>
+                </div>
+            </div>
+            <div class="bet-box bet-box-2">
+                <div class="hand hand-1">
+                    <div class="value" style="visibility: visible;">20</div>
+                    <div class="bet" style="visibility: visible;">25</div>
+                    <div class="cards">
+                        <img class="card card-1" src="./assets/cards/QD.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 0px; top: -90px; position: absolute;">
+                        <img class="card card-2" src="./assets/cards/QS.png" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; left: 35px; top: -120px; position: absolute;">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!-- Action Buttons for Course of Play -->
-    <div id="buttons-area">
-        <button class="btn" id="btn-deal">Deal</button>
-        <button class="btn" id="btn-hit">Hit</button>
-        <button class="btn" id="btn-stand">Stand</button>
-        <button class="btn" id="btn-double">Double</button>
-        <button class="btn" id="btn-split">Split</button>
-        <button class="btn" id="btn-surrender">Surrender</button>
-        <button class="btn" id="btn-insurance">Insurance</button>
-    </div>
-
-        <script id="site" type="module" src="./dist/main.js"></script>
+        <!-- Action Buttons for Course of Play -->
+        <div id="buttons-area">
+            <button class="btn" id="btn-deal">Deal</button>
+            <button class="btn" id="btn-hit">Hit</button>
+            <button class="btn" id="btn-stand">Stand</button>
+            <button class="btn" id="btn-double">Double</button>
+            <button class="btn" id="btn-split">Split</button>
+            <button class="btn" id="btn-surrender">Surrender</button>
+            <button class="btn" id="btn-insurance">Insurance</button>
+            <button class="btn" id="btn-undo">Undo</button>
+            <button class="btn" id="btn-clear-bets">Clear Bets</button>
+            <button class="btn" id="btn-reset-table">Reset Table</button>
+            <button class="btn" id="btn-create-table">Create Table</button>
+            <button class="btn" id="btn-next-hand">Next Hand</button>
+        </div>
+        <script id="site" type="module" src="/dist/main.js"></script>
     </body>
 </html>
