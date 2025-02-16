@@ -6,7 +6,7 @@ export class BetBox {
         this.id = id;
     }
     placeBet(bet) {
-        this.hands[0].placeBet(bet);
+        this.hands[0].setBet(bet);
         this.player.stack -= bet;
     }
 }

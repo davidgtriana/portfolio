@@ -5,6 +5,7 @@ body {
     color: black;
     margin: 0;
     padding-top: 50px;
+    overflow-x: hidden;
 }
 
 body::before {
@@ -36,6 +37,7 @@ body::before {
     position: fixed;
     top: 0;
     overflow: hidden;
+    z-index: 10;
 }
 
 #shoe-preview-area .cards{
@@ -49,6 +51,8 @@ body::before {
     border: none;
     box-shadow: none;
 }
+
+
 
 #dealer-area {
     background: linear-gradient( to right,
@@ -92,7 +96,7 @@ body::before {
     padding-top: 200px;
     padding-bottom: 30px;
     justify-content: center;
-    gap: 50px;
+    gap: 80px;
 }
 
 .bet-box {
@@ -111,32 +115,45 @@ body::before {
     justify-content: center;
 }
 
+
 .bet-box .hand{
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0px -10px;
+    margin: 0px -5px;
 }
 
+.bet-box .hand:nth-child(1){
+    --base-y: 0px;
+    transform: translateY(var(--base-y));
+    z-index: 4;
+}
 .bet-box .hand:nth-child(2){
-    transform: rotate(0deg) translateY(-20px);
+    --base-y: -15px;
+    transform: translateY(var(--base-y));
+    z-index: 3;
 }
 .bet-box .hand:nth-child(3){
-    transform: rotate(0deg) translateY(-40px);
+    --base-y: -30px;
+    transform: translateY(var(--base-y));
+    z-index: 2;
 }
 .bet-box .hand:nth-child(4){
-    transform: rotate(0deg) translateY(-80px);
+    --base-y: -45px;
+    transform: translateY(var(--base-y));
+    z-index: 1;
 }
 
 .hand.current_turn{
     animation: floatAnimation 1.5s ease-in-out infinite;
+    transform: translateY(var(--base-y));
 }
 
 @keyframes floatAnimation {
-    0% {transform: translateY(0px);}
-    50% {transform: translateY(-10px);}
-    100% {transform: translateY(0px);}
+    0% { transform: translateY(calc(var(--base-y) + 0px)); }
+    50% { transform: translateY(calc(var(--base-y) - 10px)); }
+    100% { transform: translateY(calc(var(--base-y) + 0px)); }
 }
 
 .bet-box .hand .cards .card{
