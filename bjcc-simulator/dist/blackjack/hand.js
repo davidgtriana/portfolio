@@ -1,44 +1,59 @@
+import { GameConfig } from "../config.js";
 export class Hand {
+    parent_box;
     cards = [];
-    betbox_id;
-    id;
+    id = 0;
     primary_bet;
     secondary_bet;
-    total = 0;
-    ace_count = 0;
-    isActive; // Is the hand still on the table?
+    ace_count;
+    total;
+    isOnTheTable; // Is the hand still on the table?
     isBusted; // Is the hand total higher than 21?
+    isBlackJack; // Is the hand a blackjack?
     isFinished; // Has the hand finish its turn?
-    isSplitEnabled; // Does the hand have 2 cards and are both the same point value?
-    isDoubleDownEnabled; // Does the hand have only 2 cards?
-    isSurrenderEnabled; // Has there been any action on the hand?
+    isSplitted; // Is the hand splitted? (More hands in the same betbox)
+    canSplit; // Does the hand have 2 cards and are both the same point value?
+    isDoubled; // Has the hand been doubled?
+    canDouble; // Does the hand have only 2 cards?
+    isSurrendered; // Has the hand been surrendered?
+    canSurrender; // Has there been any action on the hand?
     // Special Cases:
     //  - A hand may be busted but active at the same time.
-    constructor(id, betbox_id) {
-        this.betbox_id = betbox_id;
-        this.id = id;
+    constructor(parent_box) {
         this.primary_bet = 0;
         this.secondary_bet = 0;
-        this.total = 0;
         this.ace_count = 0;
-        this.isActive = false;
+        this.total = 0;
+        this.isOnTheTable = true;
         this.isBusted = false;
+        this.isBlackJack = false;
         this.isFinished = false;
-        this.isSplitEnabled = false;
-        this.isDoubleDownEnabled = true;
-        this.isSurrenderEnabled = true;
+        this.isSplitted = false;
+        this.canSplit = false;
+        this.isDoubled = false;
+        this.canDouble = true;
+        this.isSurrendered = false;
+        this.canSurrender = true;
+        if (!parent_box)
+            return;
+        this.parent_box = parent_box;
+        this.id = this.parent_box.hands.length + 1;
+        this.parent_box.hands.push(this);
     }
-    addCard(card) {
+    get print_id() {
+        return "BB" + this.betbox_id + "H" + this.id + ":";
+    }
+    get betbox_id() {
+        return this.parent_box ? this.parent_box.id : 0;
+    }
+    get isDealers() {
+        return !(this.parent_box) ? true : false;
+    }
+    hit(card) {
+        if (GameConfig.DEBUG_MODE)
+            console.log(this.print_id + " Hits");
         // Add card to the list of cards of the hand
         this.cards.push(card);
-        // Check if it can be splittable
-        if (this.cards.length == 2)
-            this.isSplitEnabled = areCardsSamePointValue(this.cards[0], this.cards[1]);
-        // Disable double down and surrender if hand has 3 cards or more
-        if (this.cards.length >= 3) {
-            this.isDoubleDownEnabled = false;
-            this.isSurrenderEnabled = false;
-        }
         // Add the value of the card to the hand value
         if (card.value == 1) { // ACE
             this.ace_count++;
@@ -55,60 +70,111 @@ export class Hand {
             this.total -= 10;
             this.ace_count--;
         }
-        if (this.total > 21)
-            this.isBusted = true;
+        if (this.cards.length == 2) {
+            if (this.total == 21) {
+                this.isFinished = true;
+                this.canDouble = false;
+                this.canSurrender = false;
+                if (!this.isSplitted)
+                    this.isBlackJack = true;
+                return;
+            }
+            // Check if it can be splittable
+            if (this.areCardsSamePointValue()) {
+                if (!this.parent_box)
+                    return;
+                if (this.parent_box.hands.length < GameConfig.MAX_HANDS_PER_BOX)
+                    this.canSplit = true;
+                return;
+            }
+        }
+        if (this.cards.length >= 3) {
+            // Disable double down and surrender if hand has 3 cards or more
+            this.canDouble = false;
+            this.canSurrender = false;
+            if (this.total >= 21) {
+                this.isFinished = true;
+                if (this.total > 21)
+                    this.isBusted = true;
+            }
+        }
+    }
+    stand() {
+        if (GameConfig.DEBUG_MODE)
+            console.log(this.print_id + " Stands");
+        this.isFinished = true;
+        this.canSplit = false;
+        this.canDouble = false;
+        this.canSurrender = false;
+    }
+    double() {
+        if (!this.parent_box) {
+            console.log("Dealer can't Double");
+            return;
+        }
+        if (GameConfig.DEBUG_MODE)
+            console.log(this.print_id + " Doubles");
+        this.isDoubled = true;
+        this.secondary_bet = this.primary_bet;
+        this.parent_box.player.stack -= this.secondary_bet;
+        this.stand();
+    }
+    split() {
+        if (!this.parent_box) {
+            console.log("Dealer can't Split");
+            return undefined;
+        }
+        if (GameConfig.DEBUG_MODE)
+            console.log(this.print_id + " Splits");
+        this.isSplitted = true;
+        this.canSplit = false;
+        this.canSurrender = false;
+        const new_hand = new Hand(this.parent_box);
+        new_hand.hit(this.removeCard());
+        new_hand.primary_bet = this.primary_bet;
+        this.parent_box.player.stack -= new_hand.primary_bet;
+        new_hand.isSplitted = true;
+        new_hand.canSurrender = false;
+        return new_hand;
     }
     removeCard() {
-        // Since removeCard is only possible when splitting a hand, make it false for that hand
-        this.isSplitEnabled = false;
         // Remove the cards of the list of cards
         const card = this.cards.pop();
-        // Adjust total value of the hand
-        if (card.value == 1) { // Ace handling
-            // this.ace_count--;
-            // if (this.total > 21) {
-            //     this.total -= 1; // If an Ace was already reduced to 1
-            // } else {
-            //     this.total -= 11; // If it was still counted as 11
-            // }
-        }
-        else if (card.value >= 10) { // Face Card (J, Q, K)
+        // Face Card (J, Q, K)
+        if (card.value >= 10) {
             this.total -= 10;
+            // Number Cards (1-9)
         }
-        else { // Number Cards (2-9)
+        else {
             this.total -= card.value;
         }
         return card;
     }
-    split() {
-        const new_hand = new Hand(this.id + 1, this.betbox_id);
-        new_hand.primary_bet = this.primary_bet;
-        new_hand.addCard(this.removeCard());
-        return new_hand;
-    }
     print() {
         console.log("BB" + this.betbox_id +
-            "H" + (this.id ? this.id : 0) +
-            ": A?" + this.isActive +
+            "H" + this.id +
+            ": A?" + this.isOnTheTable +
             " B?" + this.isBusted +
+            " BJ?" + this.isBlackJack +
+            " pBJ?" + this.isTherePotentialForBJ() +
             " F?" + this.isFinished +
-            " Sp?" + this.isSplitEnabled +
-            " DD?" + this.isDoubleDownEnabled +
-            " Sr?" + this.isSurrenderEnabled +
+            " SpH?" + this.isSplitted +
+            " SpE?" + this.canSplit +
+            " DDH?" + this.isDoubled +
+            " DDE?" + this.canDouble +
+            " SrH?" + this.isSurrendered +
+            " Sr?" + this.canSurrender +
             " TT" + this.getHandTotal() +
             " #A" + this.ace_count +
             " B1$" + this.primary_bet + " B2$" + this.secondary_bet +
             " C: " + this.cards.map(card => card.toString(true)).join(" | "));
-    }
-    setBet(bet) {
-        this.primary_bet = bet;
     }
     getHandTotal() {
         if (this.cards.length == 0)
             return "0";
         if (this.total > 21)
             return "💥";
-        if (this.total == 21 && this.cards.length == 2) {
+        if (this.isBlackJack) {
             return "BJ";
         }
         else if (this.id > 1) {
@@ -126,18 +192,29 @@ export class Hand {
     }
     reset() {
         this.cards = [];
-        this.primary_bet = 25;
+        this.primary_bet = 0;
         this.secondary_bet = 0;
         this.total = 0;
         this.ace_count = 0;
-        this.isActive = false;
+        this.isOnTheTable = false;
         this.isBusted = false;
+        this.isBlackJack = false;
         this.isFinished = false;
-        this.isSplitEnabled = false;
-        this.isDoubleDownEnabled = true;
-        this.isSurrenderEnabled = true;
+        this.isSplitted = false;
+        this.canSplit = false;
+        this.isDoubled = false;
+        this.canDouble = true;
+        this.isSurrendered = false;
+        this.canSurrender = true;
     }
-}
-function areCardsSamePointValue(primary_card, secondary_card) {
-    return (primary_card.value >= 10 && secondary_card.value >= 10) || (primary_card.value == secondary_card.value);
+    get primary_card() { return this.cards[0]; }
+    get secondary_card() { return this.cards[1]; }
+    areCardsSamePointValue() {
+        return (this.primary_card.value >= 10 && this.secondary_card.value >= 10) || (this.primary_card.value == this.secondary_card.value);
+    }
+    isTherePotentialForBJ() {
+        if (this.cards.length == 0)
+            return false;
+        return this.primary_card.value >= 10 || this.primary_card.value == 1;
+    }
 }

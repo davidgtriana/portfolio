@@ -1,13 +1,22 @@
+* { margin: 0; padding: 0; box-sizing: border-box;}
+
+h1{ padding: 10px 0;}
+
 body {
+    background-color: rgb(5, 99, 28);
+    /*padding-top: 50px; Space for the shoe preview area*/
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: rgb(5, 99, 28);
     color: black;
-    margin: 0;
-    padding-top: 50px;
-    overflow-x: hidden;
 }
 
+/* Placing the stupid background in it */
 body::before {
     content: "";
     background: radial-gradient(circle, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 100%);
@@ -24,16 +33,18 @@ body::before {
 }
 
 .card{
+    display:absolute;
     width: 60px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    backface-visibility: hidden;
 }
 
 #shoe-preview-area{
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 10px 5px;
     width: 100%;
+    padding: 10px 5px;
     position: fixed;
     top: 0;
     overflow: hidden;
@@ -52,6 +63,31 @@ body::before {
     box-shadow: none;
 }
 
+#player-area{
+    position: absolute;
+    top: 100px;
+    right: 0;
+    background-color: black;
+    width: 200px;
+
+    padding: 10px;
+    color: white;
+
+    display: block;
+    text-align: left;
+}
+
+.stack-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.running-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
 
 #dealer-area {
@@ -61,10 +97,9 @@ body::before {
         rgba(0, 0, 0, 0.35) 60%,
         rgba(0, 0, 0, 0) 80%);
 
-    padding: 10px 10px;
-    height: 150px;
-
+    padding: 20px 10px;
     width: 90%; /* Or any fixed width */
+    height: 180px;
     max-width: 1000px; /* Prevents it from getting too big */
     margin: 0 auto; /* Centers horizontally */
 }
@@ -89,39 +124,62 @@ body::before {
     gap: 10px;
 }
 
-#bet-boxes-area {
+.bet-boxes-wrapper{
+    width: 100%;
+    margin-top: -180px;
+
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    padding-top: 200px;
-    padding-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #c63737b1;
+}
+
+#bet-boxes-area {
+    margin: 0px auto;
+    width: max-content;
+    display: flex;
     justify-content: center;
-    gap: 80px;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+    flex-shrink: 0;
+    
+    padding-top: 380px;
+    padding-bottom: 30px;
 }
 
 .bet-box {
+    position: relative;
     background: radial-gradient(circle, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6) 100%);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    outline: 1px dashed rgba(255, 255, 255, 0.6);
-    outline-offset: 1px;
+    outline: 0.5px dashed rgba(255, 255, 255, 0.6);
+    outline-offset: 0.5px;
     border-radius: 50%;
+
+    margin: 0px 40px;
+
     width: 80px;
     height: 80px;
-    gap:-10px;
 
-    position: relative;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
 }
 
+.bet-box.available{
+    cursor: pointer;
+    animation: colorAnimation 1.5s ease-in-out infinite;
+}
+
+@keyframes colorAnimation {50% { background-color: rgba(255, 255, 255, 0.293);}}
 
 .bet-box .hand{
     position: relative;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 0px -5px;
+    width: 50px;
+    flex-shrink: 0;
 }
 
 .bet-box .hand:nth-child(1){
@@ -145,15 +203,10 @@ body::before {
     z-index: 1;
 }
 
-.hand.current_turn{
-    animation: floatAnimation 1.5s ease-in-out infinite;
-    transform: translateY(var(--base-y));
-}
-
 @keyframes floatAnimation {
-    0% { transform: translateY(calc(var(--base-y) + 0px)); }
-    50% { transform: translateY(calc(var(--base-y) - 10px)); }
-    100% { transform: translateY(calc(var(--base-y) + 0px)); }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
 .bet-box .hand .cards .card{
@@ -161,25 +214,53 @@ body::before {
 }
 
 .bet-box .hand .value{
-    background-color: white;
-    border: 2px solid burlywood;
-    margin-top: 10px;
-    width: 55px;
-    height: 18px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
+    position: absolute;
+    top: -10px;
+    width: 36px;
+    height: 36px;
+
+    background: linear-gradient(rgb(110, 110, 110),rgb(0, 0, 0));
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+
+    color: rgb(255, 255, 255);
+    font-size: 12.5px;
+    z-index: 2;
 }
 
-.bet-box .hand .bet{
-    background-color: blueviolet;
+.bet-box .hand .value.blackjack{
+    background: linear-gradient(rgb(255, 232, 138),rgb(174, 160, 5));
+    color: rgb(41, 41, 41);
+    font-weight: bold;
+}
+.bet-box .hand .value.busted{
+    background: linear-gradient(rgb(249, 0, 0),rgb(100, 4, 4));
+}
+.hand.current_turn .value{
+    background: linear-gradient(rgb(114, 126, 255),rgb(6, 42, 244));
+    animation: floatAnimation 1.5s ease-in-out infinite;
+}
+
+.bet-box .hand .bets {
     position: relative;
-    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.bet-box .hand .bets .bet{
+    background: linear-gradient(rgb(83, 231, 66),rgb(13, 151, 50));
+    color: rgb(58, 58, 58);
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    margin-top: 5px;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,32 +269,58 @@ body::before {
     font-weight: bold;
 }
 
+/* Border of the Chip */
+.bet-box .hand .bets .bet::after{
+    content: "";
+    background-color: rgb(22, 127, 92);
+    border: 1px dashed rgb(56, 56, 56);
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+
+    -webkit-mask: radial-gradient(circle, transparent 64%, white 66%);
+    mask: radial-gradient(circle, transparent 64%, white 66%);
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 1;
+
+}
+
 #buttons-area {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 10px;
     width: 90%;
     max-width: 700px;
     margin: 0 auto;
+
 }
 
 .btn {
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    border: 4px rgb(211, 85, 53) solid;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    text-overflow: ellipsis;
+    padding: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     color:white;
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
-    text-align: center;
-    border: 4px rgb(211, 85, 53) solid;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
-    background-color: black;
-    border-radius: 50%;
     
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-    
-    text-overflow: ellipsis;
     cursor: pointer;
 }
 

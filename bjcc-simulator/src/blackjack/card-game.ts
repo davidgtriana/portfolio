@@ -1,8 +1,8 @@
  /* SUIT: 
-    - 0 == ♠ SPADES
-    - 1 == ♦ DIAMONDS
-    - 2 == ♣ CLUBS
-    - 3 == ♥ HEARTS
+    - 1 == ♠ SPADES
+    - 2 == ♦ DIAMONDS
+    - 3 == ♣ CLUBS
+    - 4 == ♥ HEARTS
 
       VALUE:
     - 1 == (A) ACE
@@ -12,7 +12,8 @@
     - 12 == (Q) QUEEN
     - 13 == (K) KING
     */
-import {DiceRoller} from "./dice-roller.js";
+import {DiceRoller} from "../dice-roller.js";
+
 export class Card {
   suit: number;
   value: number;
@@ -20,33 +21,49 @@ export class Card {
     this.suit = suit;
     this.value = value;
   }
+
   toString(type:boolean): string{
     // Type: (true) Symbols, (false) Letters 
     const valueLetters: { [key: number]: string } = { 1: "A", 10: "T", 11: "J", 12: "Q", 13: "K" };
-    const suitLetters = ["S","D","C","H"];
-    const suitSymbols = ["♠","♦","♣","♥"];
+    const suitLetters = ["0","S","D","C","H"];
+    const suitSymbols = ["0","♠","♦","♣","♥"];
     return (valueLetters[this.value]||this.value)+(type?suitSymbols[this.suit]:suitLetters[this.suit]);
+  }
+  get isCutCard() : boolean{
+    return this.suit == 0 && this.value == 0;
   }
 }
 
 export class StackCard {
   cards: Card[] = [];
-  amount_of_cards: number;
-  amount_of_cards_used: number;
   amount_of_decks: number;
 
   constructor(amount_of_decks:number) {
     this.amount_of_decks = amount_of_decks;
-    for (let i=0;i<this.amount_of_decks;i++)
+    for (let i = 0; i < this.amount_of_decks; i++)
       this.createDeck();
-    this.amount_of_cards = this.cards.length;
-    this.amount_of_cards_used = 0;
+  }
+
+  get amount_of_cards(): number{
+    return this.cards.length;
+  }
+  get amount_of_cards_used():number{
+    return (this.amount_of_decks * 52) - this.amount_of_cards;
   }
 
   private createDeck(){
-    for (let currentSuit = 0; currentSuit <=3 ; currentSuit++)											
+    for (let currentSuit = 1; currentSuit <= 4 ; currentSuit++)											
       for (let currentValue = 1; currentValue <=13 ; currentValue++)
-        this.cards.push(new Card(currentSuit,currentValue));
+        this.cards.push(new Card( currentSuit, currentValue));
+  }
+
+  static getPredeterminedDeck(): StackCard{
+    const new_deck: StackCard = new StackCard(0);
+    new_deck.cards = [
+      new Card(1,1),new Card(1,1),new Card(1,4),new Card(1,10),new Card(1,8),new Card(2,1),new Card(1,4),new Card(1,10),new Card(3,9),new Card(4,9),
+      new Card(1,9),new Card(2,9),new Card(3,9),new Card(4,5),new Card(2,5),new Card(2,6),new Card(2,7),new Card(2,8),new Card(2,9),new Card(2,10),
+      new Card(2,1),new Card(2,2),new Card(2,3),new Card(2,4),new Card(2,5),new Card(2,6),new Card(2,7),new Card(2,8),new Card(2,9),new Card(2,10),];
+    return new_deck;
   }
 
   public shuffle (die:DiceRoller): void{
@@ -62,18 +79,15 @@ export class StackCard {
 
   // Returns the first card of the stack from up-down and removes it from the stack
   public draw(): Card | undefined {
-    this.amount_of_cards -= 1;
-    this.amount_of_cards_used += 1;
     return this.cards.shift();
   }
 
   // Adds the card to the stack from up-down
   public add(card:Card){
-    this.amount_of_cards += 1;
     this.cards.unshift(card);
   }
 
-  print(){
+  public print(){
     console.log("Printing Deck: Amount of Cards: " + this.amount_of_cards + "  Amount of Cards Used: " + this.amount_of_cards_used);
     console.log(this.cards.map(card => card.toString(true)).join(" | "));
   }
