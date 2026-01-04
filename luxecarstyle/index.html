@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Luxe Car Style — Website under construction." />
+  <title>Luxe Car Style — Coming Soon</title>
+
+  <style>
+    :root{
+      /* Emerald palette */
+      --bg-0: #062e26;
+      --bg-1: #0a3b31;
+      --bg-2: #0f5646;
+
+      /* Accent (use “gold-like” for screen; printer/brand can later swap to green) */
+      --accent: rgba(232, 197, 120, .95);
+      --accent-soft: rgba(232, 197, 120, .55);
+
+      /* Text */
+      --text: rgba(255,255,255,.92);
+      --text-dim: rgba(255,255,255,.70);
+      --panel: rgba(0,0,0,.18);
+      --border: rgba(232, 197, 120, .20);
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    @font-face {font-family: "Bodoni";  src: url("assets/font/BodoniModa-VariableFont_opsz\,wght.ttf")   format("truetype");}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 70% 25%, rgba(20, 130, 105, .35), transparent 60%),
+        radial-gradient(900px 500px at 15% 70%, rgba(10, 90, 74, .35), transparent 55%),
+        linear-gradient(135deg, var(--bg-0), var(--bg-1) 45%, var(--bg-2));
+      overflow-x: hidden;
+    }
+
+    /* Subtle “luxury texture” (no external assets) */
+    body::before{
+      content:"";
+      position: fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.12;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    .wrap{
+      min-height: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 48px 18px;
+    }
+
+    .card{
+      width: min(980px, 96vw);
+      background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.10));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 22px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      position: relative;
+      overflow:hidden;
+    }
+
+    /* Thin luxury border line */
+    .card::after{
+      content:"";
+      position:absolute;
+      inset: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      pointer-events:none;
+    }
+
+    .content{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      padding: 56px 54px;
+      align-items:center;
+    }
+
+    @media (max-width: 860px){
+      .content{
+        grid-template-columns: 1fr;
+        padding: 42px 22px;
+      }
+      .car{
+        height: 220px;
+      }
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+
+    .logo{
+      font-family: 'Bodoni', serif;
+      letter-spacing: .06em;
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 1;
+      margin: auto;
+      color: var(--accent);
+      /* keep it clean; shine should be print finishing (spot UV) */
+      text-shadow: 0 10px 40px rgba(0,0,0,.25);
+    }
+
+    .subline{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: 12px;
+    }
+    .subline .line{
+      height: 1px;
+      background: var(--accent-soft);
+      flex: 1;
+      opacity:.7;
+    }
+
+    .title{
+      margin: 10px 0 0;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      color: rgba(255,255,255,.88);
+    }
+
+    .desc{
+      margin: 6px 0 0;
+      color: var(--text-dim);
+      max-width: 52ch;
+      line-height: 1.6;
+    }
+
+    .pill{
+      margin-top: 18px;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      border: 1px solid rgba(232, 197, 120, .25);
+      background: rgba(0,0,0,.20);
+      padding: 10px 14px;
+      border-radius: 999px;
+      width: fit-content;
+      color: rgba(255,255,255,.85);
+      font-size: 13px;
+      letter-spacing: .02em;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: rgba(232, 197, 120, .95);
+      box-shadow: 0 0 18px rgba(232, 197, 120, .45);
+    }
+
+    .info{
+      margin-top: 18px;
+      display:grid;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,.82);
+    }
+    .info a{
+      color: rgba(255,255,255,.86);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      width: fit-content;
+    }
+    .info a:hover{ border-bottom-color: rgba(255,255,255,.45); }
+
+    /* Right panel with line-art car */
+    .right{
+      position: relative;
+      padding: 14px;
+      border-left: 1px solid rgba(232, 197, 120, .18);
+    }
+    @media (max-width: 860px){
+      .right{ border-left: none; border-top: 1px solid rgba(232, 197, 120, .18); padding-top: 22px; }
+    }
+
+    .car{
+      width: 100%;
+      height: 300px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      opacity: .95;
+      position: relative;
+    }
+
+    .hint{
+      position:absolute;
+      top: 10px;
+      left: 12px;
+      right: 12px;
+      display:flex;
+      justify-content:space-between;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+
+    footer{
+      padding: 18px 54px 26px;
+      color: rgba(255,255,255,.45);
+      font-size: 12px;
+      letter-spacing: .02em;
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    @media (max-width: 860px){
+      footer{ padding: 16px 22px 22px; flex-direction:column; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card" aria-label="Luxe Car Style coming soon">
+      <div class="content">
+        <!-- LEFT -->
+        <div class="brand">
+          <h1 class="logo">LUXE</h1>
+
+          <div class="subline" aria-hidden="true">
+            <span class="line"></span>
+            <span>Luxe Car Style</span>
+            <span class="line"></span>
+          </div>
+
+          <div class="pill" role="status" aria-live="polite">
+            <span class="dot" aria-hidden="true"></span>
+            Website under construction
+          </div>
+
+          <p class="title">Premium upgrades for cars & boats</p>
+          <p class="desc">
+            Audio systems, lighting, and custom accessories — curated with a luxury finish.
+            We’re building something beautiful. Check back soon.
+          </p>
+
+          <div class="info" aria-label="Contact information">
+            <div><strong>Pamela Silva Macalusso</strong> · CEO</div>
+            <div><a href="tel:+12369711659">+1 (236) 971-1659</a></div>
+            <div><a href="mailto:info@luxcarstyle.ca">info@luxcarstyle.ca</a></div>
+            <div><a href="https://luxcarstyle.ca">luxcarstyle.ca</a></div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+          <div class="hint">
+            <span>EST. • LUXE</span>
+            <span>VANCOUVER, BC</span>
+          </div>
+
+          
+
+      <footer>
+        <span>© <span id="year"></span> Luxe Car Style</span>
+        <span style="color: rgba(255,255,255,.40);">Where vision becomes creation</span>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
